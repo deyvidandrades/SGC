@@ -33,10 +33,6 @@ Abra o projeto no Intellij Idea para configurar os artefatos e o executável
 ```
 file > Project Estructure > Artifacts > + > JAR > from modules with dependencies >
 ```
-Selecione a main classs. <Main.class> extraia o jar e clique OK.
-```
-imagem
-```
 Construa o projeto e antes de compilar e executar faça o seguinte:
 ```
 Run > Edit Configurations > + > Jar Application
