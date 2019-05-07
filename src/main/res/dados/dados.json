@@ -1,0 +1,66 @@
+{
+  "vendas": [],
+  "funcionarios": [
+    {
+      "senha": "asd123",
+      "acesso": true,
+      "nome": "Dave",
+      "id": "156841562",
+      "cargo": "Gerente"
+    },
+    {
+      "senha": "admin",
+      "acesso": true,
+      "nome": "admin",
+      "id": "",
+      "cargo": "admin"
+    },
+    {
+      "senha": "aldo123",
+      "acesso": false,
+      "nome": "Aldo",
+      "id": "1555009078179",
+      "cargo": "vendedor"
+    },
+    {
+      "senha": "teste123",
+      "acesso": false,
+      "nome": "Teste",
+      "id": "1555009222724",
+      "cargo": "vendedor"
+    }
+  ],
+  "clientes": [
+    {
+      "idade": 23,
+      "documento": "123.456.789-20",
+      "nome": "Aldo de Oliveira",
+      "id": 1557232062651
+    },
+    {
+      "idade": 48,
+      "documento": "458.225.786-12",
+      "nome": "Ronaldo Nazário dos Santos",
+      "id": 1557232366938
+    },
+    {
+      "idade": 19,
+      "documento": "173.465.564-15",
+      "nome": "Flávio Algusto",
+      "id": 1557232461448
+    },
+    {
+      "idade": 21,
+      "documento": "256.112.556-15",
+      "nome": "Lucas Vichiato",
+      "id": 1557232592380
+    },
+    {
+      "idade": 20,
+      "documento": "268.123.998-88",
+      "nome": "Gabrielle Alves",
+      "id": 1557232643301
+    }
+  ],
+  "carros": []
+}
