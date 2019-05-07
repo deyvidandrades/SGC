@@ -6,7 +6,7 @@ import main.res.valores.Strings;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public abstract class VerificaFuncionario extends PersistirDados {
+public abstract class VerificaFuncionario implements PersistirDados {
 
     public boolean logar(Funcionario funcionario) {
 

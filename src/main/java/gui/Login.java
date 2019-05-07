@@ -1,6 +1,6 @@
 package main.java.gui;
 
-import main.java.assistentes.Frames;
+import main.java.assistentes.IniciarGUI;
 import main.java.assistentes.VerificaFuncionario;
 import main.java.entidades.Funcionario;
 import main.java.interfaces.FrameInterface;
@@ -38,7 +38,7 @@ public class Login extends VerificaFuncionario implements FrameInterface {
 
                 if (logar(funcionario)) {
                     Referencias.FUNCIONARIO = funcionario;
-                    Frames.show(Referencias.DASH_GERENTE);
+                    IniciarGUI.show(Referencias.DASH_GERENTE);
 
                 } else
                     JOptionPane.showMessageDialog(null, Strings.MENSAGEM_LOGIN_INVALIDO);

@@ -1,18 +1,22 @@
 package main.java.gui;
 
 import main.java.interfaces.FrameInterface;
+import main.java.interfaces.PersistirDados;
 import main.res.valores.Dimensoes;
 import main.res.valores.Referencias;
 import main.res.valores.Strings;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
-public class DashboardGerente implements FrameInterface {
+public class DashboardGerente implements FrameInterface, PersistirDados {
 
     public JPanel panel1;
     private JTable table1;
@@ -27,14 +31,16 @@ public class DashboardGerente implements FrameInterface {
     public DashboardGerente() {
         super();
 
+        assert false;
         img.setIcon(icone);
+
         ola.setText(String.format("Olá %s!", Referencias.FUNCIONARIO.getNome()));
 
         comprarVeiculoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
 
-                JOptionPane.showMessageDialog(frame, "Não implementado");
+                JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_NAO_IMPLEMENTADO);
             }
         });
 
@@ -42,7 +48,46 @@ public class DashboardGerente implements FrameInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
 
-                JOptionPane.showMessageDialog(frame, "Não implementado");
+                JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_NAO_IMPLEMENTADO);
+            }
+        });
+
+        configuraTabela(getDados(Strings.DADOS_CLIENTES));
+    }
+
+    private void configuraTabela(JSONArray jsonArray) {
+
+        DefaultTableModel model = new DefaultTableModel() {
+
+            @Override
+            public boolean isCellEditable(int i, int i1) {
+                return false;
+            }
+
+        };
+
+        for (String name : Referencias.COLUNAS_VENDAS) {
+            model.addColumn(name);
+        }
+
+        for (Object object : jsonArray) {
+            JSONObject jsonObject = (JSONObject) object;
+            Object[] objects = {jsonObject.get("id"), jsonObject.get("nome"), jsonObject.get("documento"), jsonObject.get("idade")};
+            model.addRow(objects);
+        }
+
+        table1.setModel(model);
+        table2.setModel(model);
+
+        table1.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int row = table1.rowAtPoint(evt.getPoint());
+                int col = table1.columnAtPoint(evt.getPoint());
+                if (row >= 0 && col >= 0) {
+
+                    JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_NAO_IMPLEMENTADO);
+                }
             }
         });
     }

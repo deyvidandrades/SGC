@@ -7,7 +7,7 @@ import main.res.valores.Referencias;
 
 import javax.swing.*;
 
-public abstract class Frames {
+public abstract class IniciarGUI {
 
     public static void show(short ID) {
         switch (ID) {

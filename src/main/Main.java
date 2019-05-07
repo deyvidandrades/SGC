@@ -1,10 +1,10 @@
 package main;
 
-import main.java.assistentes.Frames;
+import main.java.assistentes.IniciarGUI;
 
 public class Main {
 
     public static void main(String[] args) {
-        Frames.show(main.res.valores.Referencias.LOGIN);
+        IniciarGUI.show(main.res.valores.Referencias.LOGIN);
     }
 }
