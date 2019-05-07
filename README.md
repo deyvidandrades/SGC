@@ -20,7 +20,7 @@ O que você precisa instalar para rodar o software:
 
 ### Baixe ou clone o repositório
 ```
-> git clone https://www.jetbrains.com/idea/download/.git
+> git clone https://github.com/deyvidandrades/SGC.git
 ```
 
 ### Configurando a IDE Intellij Idea
