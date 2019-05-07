@@ -77,8 +77,8 @@ Simule a venda de carros, controle de estoque e financeiro
 ## Autores
 
 * **Deyvid Andrade** - [Instagram](https://instagram.com/deyvidandrades)
- * **Arthur Hauck Dittz** - [Instagram](https://instagram.com/deyvidandrades)
- * **Luiz Carlos Nascimento** - [Instagram](https://instagram.com/deyvidandrades)
+ * **Arthur Hauck Dittz** - [Instagram](https://instagram.com/arthurhd)
+ * **Luiz Carlos Nascimento** - [Instagram](https://instagram.com/luizcnfilho)
 
 ## Licença
 Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE.md](LICENSE.md) para obter detalhes
