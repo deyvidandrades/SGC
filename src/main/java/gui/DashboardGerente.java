@@ -88,7 +88,8 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
 
         for (Object object : jsonArray) {
             JSONObject jsonObject = (JSONObject) object;
-            Object[] objects = {jsonObject.get("id"), jsonObject.get("nome"), jsonObject.get("documento"), jsonObject.get("idade")};
+
+            Object[] objects = {jsonObject.get("id"), jsonObject.get("cliente"), jsonObject.get("pagamento"), jsonObject.get("carro"), jsonObject.get("funcionario")};
             model.addRow(objects);
         }
 
@@ -125,7 +126,7 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
 
         for (Object object : jsonArray) {
             JSONObject jsonObject = (JSONObject) object;
-            Object[] objects = {jsonObject.get("id"), jsonObject.get("nome"), jsonObject.get("documento"), jsonObject.get("idade")};
+            Object[] objects = {jsonObject.get("id"), jsonObject.get("marca"), jsonObject.get("modelo"), jsonObject.get("ano"), jsonObject.get("preco")};
             model.addRow(objects);
         }
 

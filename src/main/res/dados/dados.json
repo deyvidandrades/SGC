@@ -1,12 +1,48 @@
 {
-  "vendas": [],
+  "vendas": [
+    {
+      "id": 1557436195623,
+      "cliente": "1557232062651",
+      "pagamento": "Debito",
+      "carro": "1557434545164",
+      "funcionario": "1557436290583"
+    },
+    {
+      "id": 1557436204237,
+      "cliente": "1557232366938",
+      "pagamento": "Debito",
+      "carro": "1557434593592",
+      "funcionario": "1555009078179"
+    },
+    {
+      "id": 1557436214789,
+      "cliente": "1557232461448",
+      "pagamento": "Credito",
+      "carro": "1557434604982",
+      "funcionario": "1555009078179"
+    },
+    {
+      "id": 1557436223225,
+      "cliente": "1557232592380",
+      "pagamento": "Credito",
+      "carro": "1557434622458",
+      "funcionario": "1555009078179"
+    },
+    {
+      "id": 1557436231337,
+      "cliente": "1557232062651",
+      "pagamento": "Credito",
+      "carro": "1557434614144",
+      "funcionario": "1555009078179"
+    }
+  ],
   "funcionarios": [
     {
       "senha": "admin",
       "acesso": true,
       "nome": "Administrador Padrão",
       "login": "admin",
-      "id": "1111123",
+      "id": "1557436290583",
       "cargo": "Gerente"
     },
     {
@@ -57,7 +93,7 @@
       "modelo": "Palio",
       "ano": "2014",
       "quilometragem": "110.000",
-      "Preço": "36.000",
+      "preco": "36.000",
       "cambio": "manual",
       "cor": "branca",
       "portas": "4",
@@ -71,7 +107,7 @@
       "modelo": "Punto",
       "ano": "2015",
       "quilometragem": "10.000",
-      "Preço": "40.000",
+      "preco": "40.000",
       "cambio": "manual",
       "cor": "branca",
       "portas": "4",
@@ -85,7 +121,7 @@
       "modelo": "Toro",
       "ano": "2017",
       "quilometragem": "27.000",
-      "Preço": "94.999",
+      "preco": "94.999",
       "cambio": "automático",
       "cor": "branca",
       "portas": "4",
@@ -99,7 +135,7 @@
       "modelo": "Cronos",
       "ano": "2019",
       "quilometragem": "0",
-      "Preço": "62.990",
+      "preco": "62.990",
       "cambio": "manual",
       "cor": "vermelho",
       "portas": "4",
@@ -113,7 +149,7 @@
       "modelo": "Mobi",
       "ano": "2019",
       "quilometragem": "0",
-      "Preço": "36.990",
+      "preco": "36.990",
       "cambio": "manual",
       "cor": "prata",
       "portas": "4",
@@ -127,7 +163,7 @@
       "modelo": "Polo",
       "ano": "2019",
       "quilometragem": "0",
-      "Preço": "68.470",
+      "preco": "68.470",
       "cambio": "automático",
       "cor": "vermelho",
       "portas": "4",
@@ -141,7 +177,7 @@
       "modelo": "Fox",
       "ano": "2019",
       "quilometragem": "0",
-      "Preço": "52.990",
+      "preco": "52.990",
       "cambio": "manual",
       "cor": "cinza",
       "portas": "4",
@@ -155,7 +191,7 @@
       "modelo": "Saveiro",
       "ano": "2015",
       "quilometragem": "60.000",
-      "Preço": "36.000",
+      "preco": "36.000",
       "cambio": "manual",
       "cor": "preto",
       "portas": "2",
@@ -169,7 +205,7 @@
       "modelo": "Gol",
       "ano": "2015",
       "quilometragem": "84.000",
-      "Preço": "27.000",
+      "preco": "27.000",
       "cambio": "manual",
       "cor": "prata",
       "portas": "4",
@@ -183,7 +219,7 @@
       "modelo": "Amarok",
       "ano": "2019",
       "quilometragem": "0",
-      "Preço": "189.990",
+      "preco": "189.990",
       "cambio": "automático",
       "cor": "branca",
       "portas": "4",
