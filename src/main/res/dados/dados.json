@@ -2,32 +2,20 @@
   "vendas": [],
   "funcionarios": [
     {
-      "senha": "asd123",
-      "acesso": true,
-      "nome": "Dave",
-      "id": "156841562",
-      "cargo": "Gerente"
-    },
-    {
       "senha": "admin",
       "acesso": true,
-      "nome": "admin",
+      "nome": "Administrador Padrão",
+      "login": "admin",
       "id": "",
-      "cargo": "admin"
+      "cargo": "Gerente"
     },
     {
       "senha": "aldo123",
       "acesso": false,
-      "nome": "Aldo",
+      "login": "aldo",
+      "nome": "Aldo De Oliveira",
       "id": "1555009078179",
-      "cargo": "vendedor"
-    },
-    {
-      "senha": "teste123",
-      "acesso": false,
-      "nome": "Teste",
-      "id": "1555009222724",
-      "cargo": "vendedor"
+      "cargo": "Vendedor"
     }
   ],
   "clientes": [

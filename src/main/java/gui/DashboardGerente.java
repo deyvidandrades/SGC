@@ -1,5 +1,6 @@
 package main.java.gui;
 
+import main.java.assistentes.IniciarGUI;
 import main.java.interfaces.FrameInterface;
 import main.java.interfaces.PersistirDados;
 import main.res.valores.Dimensoes;
@@ -19,14 +20,15 @@ import java.io.IOException;
 public class DashboardGerente implements FrameInterface, PersistirDados {
 
     public JPanel panel1;
-    private JTable table1;
-    private JTable table2;
+    private JTable tabelaVendas;
+    private JTable tabelaEstoque;
     private JTextField textField2;
     private JTextField textField3;
     private JLabel img;
     private JButton cadastrarFuncionarioButton;
     private JButton comprarVeiculoButton;
     private JLabel ola;
+    private JButton sairButton;
 
     public DashboardGerente() {
         super();
@@ -36,26 +38,40 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
 
         ola.setText(String.format("Olá %s!", Referencias.FUNCIONARIO.getNome()));
 
-        comprarVeiculoButton.addActionListener(new ActionListener() {
+        if (!Referencias.FUNCIONARIO.getAcesso()) {
+            cadastrarFuncionarioButton.setEnabled(false);
+            comprarVeiculoButton.setEnabled(false);
+        } else {
+            cadastrarFuncionarioButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent actionEvent) {
+                    IniciarGUI.show(Referencias.CADASTRAR_FUNCIONARIO);
+                }
+            });
+
+            comprarVeiculoButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent actionEvent) {
+
+                    JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_NAO_IMPLEMENTADO);
+                }
+            });
+        }
+
+        sairButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
-                JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_NAO_IMPLEMENTADO);
+                Referencias.FUNCIONARIO = null;
+                IniciarGUI.show(Referencias.LOGIN);
             }
         });
 
-        cadastrarFuncionarioButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-
-                JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_NAO_IMPLEMENTADO);
-            }
-        });
-
-        configuraTabela(getDados(Strings.DADOS_CLIENTES));
+        configuraTabelaVendas();
+        configuraTabelaEstoque();
     }
 
-    private void configuraTabela(JSONArray jsonArray) {
+    private void configuraTabelaVendas() {
+        JSONArray jsonArray = getDados(Strings.DADOS_VENDAS);
 
         DefaultTableModel model = new DefaultTableModel() {
 
@@ -66,7 +82,7 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
 
         };
 
-        for (String name : Referencias.COLUNAS_VENDAS) {
+        for (Object name : Referencias.COLUNAS_VENDAS) {
             model.addColumn(name);
         }
 
@@ -76,14 +92,50 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
             model.addRow(objects);
         }
 
-        table1.setModel(model);
-        table2.setModel(model);
+        tabelaVendas.setModel(model);
 
-        table1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabelaVendas.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                int row = table1.rowAtPoint(evt.getPoint());
-                int col = table1.columnAtPoint(evt.getPoint());
+                int row = tabelaVendas.rowAtPoint(evt.getPoint());
+                int col = tabelaVendas.columnAtPoint(evt.getPoint());
+                if (row >= 0 && col >= 0) {
+
+                    JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_NAO_IMPLEMENTADO);
+                }
+            }
+        });
+    }
+
+    private void configuraTabelaEstoque() {
+        JSONArray jsonArray = getDados(Strings.DADOS_CARROS);
+
+        DefaultTableModel model = new DefaultTableModel() {
+
+            @Override
+            public boolean isCellEditable(int i, int i1) {
+                return false;
+            }
+
+        };
+
+        for (Object name : Referencias.COLUNAS_ESTOQUE) {
+            model.addColumn(name);
+        }
+
+        for (Object object : jsonArray) {
+            JSONObject jsonObject = (JSONObject) object;
+            Object[] objects = {jsonObject.get("id"), jsonObject.get("nome"), jsonObject.get("documento"), jsonObject.get("idade")};
+            model.addRow(objects);
+        }
+
+        tabelaEstoque.setModel(model);
+
+        tabelaEstoque.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int row = tabelaEstoque.rowAtPoint(evt.getPoint());
+                int col = tabelaEstoque.columnAtPoint(evt.getPoint());
                 if (row >= 0 && col >= 0) {
 
                     JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_NAO_IMPLEMENTADO);

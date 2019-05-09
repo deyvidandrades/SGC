@@ -1,5 +1,6 @@
 package main.java.assistentes;
 
+import main.java.gui.CadastroFuncionarios;
 import main.java.gui.DashboardGerente;
 import main.java.gui.DashboardVendedor;
 import main.java.gui.Login;
@@ -18,13 +19,18 @@ public abstract class IniciarGUI {
             case Referencias.DASH_GERENTE:
                 DashboardGerente dashboardGerente = new DashboardGerente();
                 dashboardGerente.show();
-
                 break;
+
             case Referencias.DASH_VENDEDOR:
                 DashboardVendedor dashVendedor = new DashboardVendedor();
                 dashVendedor.show();
-
                 break;
+
+            case Referencias.CADASTRAR_FUNCIONARIO:
+                CadastroFuncionarios cadastroFuncionarios = new CadastroFuncionarios();
+                cadastroFuncionarios.show();
+                break;
+
             default:
                 break;
         }

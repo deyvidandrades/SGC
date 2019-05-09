@@ -2,6 +2,7 @@ package main.java.assistentes;
 
 import main.java.entidades.Funcionario;
 import main.java.interfaces.PersistirDados;
+import main.res.valores.Referencias;
 import main.res.valores.Strings;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -17,8 +18,10 @@ public abstract class VerificaFuncionario implements PersistirDados {
             JSONObject jsonObject = (JSONObject) o;
 
             Funcionario f = new Funcionario(jsonObject);
-            if (funcionario.getNome().equals(f.getNome()) && funcionario.getSenha().equals(f.getSenha()))
+            if (funcionario.getLogin().equals(f.getLogin()) && funcionario.getSenha().equals(f.getSenha())) {
                 logado = true;
+                Referencias.FUNCIONARIO = f;
+            }
         }
 
         return logado;

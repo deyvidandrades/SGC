@@ -12,8 +12,11 @@ public abstract class Strings {
     public static String DASH_GERENTE = "Dashboard";
     public static String DASH_VENDEDOR = "Vendas";
     public static String FOOTER = "Desenvolvido por Grupo DAL";
+
+    //MENSAGENS//
     public static String MENSAGEM_LOGIN_INVALIDO = "Nome ou senha inválido.";
     public static String MENSAGEM_NAO_IMPLEMENTADO = "Funcionalidade não implementada";
+    public static String MENSAGEM_NOVO_FUNCIONARIO = "Funcionario adicionado com sucesso";
 
     //RECURSOS GRAFICOS//
     public static String ICONE = "src/main/res/imagens/dal.png";

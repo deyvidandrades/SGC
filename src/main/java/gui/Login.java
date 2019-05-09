@@ -34,16 +34,14 @@ public class Login extends VerificaFuncionario implements FrameInterface {
         acessarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                Funcionario funcionario = new Funcionario(textField1.getText(), false, passwordField1.getText(), "");
+                Funcionario funcionario = new Funcionario("", passwordField1.getText(), "", textField1.getText(), false);
 
                 if (logar(funcionario)) {
-                    Referencias.FUNCIONARIO = funcionario;
                     IniciarGUI.show(Referencias.DASH_GERENTE);
 
                 } else
                     JOptionPane.showMessageDialog(null, Strings.MENSAGEM_LOGIN_INVALIDO);
             }
-
         });
 
     }

@@ -12,6 +12,7 @@ public class Funcionario {
     private boolean acesso;
     private String senha;
     private String cargo;
+    private String login;
     private String id;
 
     public Funcionario(JSONObject funcionario) {
@@ -20,9 +21,10 @@ public class Funcionario {
         this.senha = funcionario.getString("senha");
         this.cargo = funcionario.getString("cargo");
         this.id = funcionario.getString("id");
+        this.login = funcionario.getString("login");
     }
 
-    public Funcionario(String nome, boolean acesso, String senha, String cargo) {
+    public Funcionario(String nome, String senha, String cargo, String login, boolean acesso) {
 
         Date date = new Date();
         long time = date.getTime();
@@ -31,6 +33,7 @@ public class Funcionario {
         this.acesso = acesso;
         this.senha = senha;
         this.cargo = cargo;
+        this.login = login;
         this.id = String.valueOf(time);
     }
 
@@ -50,6 +53,10 @@ public class Funcionario {
         return cargo;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
     public String getId() {
         return id;
     }
@@ -61,6 +68,7 @@ public class Funcionario {
         map.put("acesso", acesso);
         map.put("senha", senha);
         map.put("cargo", cargo);
+        map.put("login", login);
         map.put("id", id);
 
         return map;
