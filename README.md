@@ -12,8 +12,9 @@ Essas instruções farão com que você tenha uma cópia do projeto em execuçã
 O que você precisa instalar para rodar o software:
 * [Java Jdk](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) - Ambiente de desenvolvimento Java
 * [Intellij Idea](https://www.jetbrains.com/idea/download/) - IDE usada no projeto
-* [Commons-io](https://commons.apache.org/proper/commons-io/download_io.cgi) - Commons-io 2.6
-* [JSON](https://github.com/stleary/JSON-java) - Json-java 20180813
+* [Commons-io](https://github.com/deyvidandrades/SGC/tree/master2/src/bibliotecas/commons-io-2.6.jar) - Commons-io 2.6
+* [JSON](https://github.com/deyvidandrades/SGC/tree/master2/src/bibliotecas/json-20180813.jar) - Json-java 20180813
+* [ObjectMapper](https://github.com/deyvidandrades/SGC/tree/master2/src/bibliotecas/jackson-all-1.9.0.jar) - Jackson
 
 
 
@@ -62,9 +63,11 @@ Simule a venda de carros, controle de estoque e financeiro
 
 ## Ferramentas e Bibliotecas
 
+* [Java Jdk](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) - Ambiente de desenvolvimento Java
 * [Intellij Idea](https://www.jetbrains.com/idea/download/) - IDE usada no projeto
-* [Commons-io](https://commons.apache.org/proper/commons-io/download_io.cgi) - Commons-io 2.6
-* [JSON](https://github.com/stleary/JSON-java) - Json-java 20180813
+* [Commons-io](https://github.com/deyvidandrades/SGC/tree/master2/src/bibliotecas/commons-io-2.6.jar) - Commons-io 2.6
+* [JSON](https://github.com/deyvidandrades/SGC/tree/master2/src/bibliotecas/json-20180813.jar) - Json-java 20180813
+* [ObjectMapper](https://github.com/deyvidandrades/SGC/tree/master2/src/bibliotecas/jackson-all-1.9.0.jar) - Jackson
 
 ## Versão
 
@@ -73,8 +76,9 @@ Simule a venda de carros, controle de estoque e financeiro
 ## Autores
 
 * **Deyvid Andrade** - [Instagram](https://instagram.com/deyvidandrades)
- * **Arthur Hauck Dittz** - [Instagram](https://instagram.com/arthurhd)
- * **Luiz Carlos Nascimento** - [Instagram](https://instagram.com/luizcnfilho)
+* **Arthur Hauck Dittz** - [Instagram](https://instagram.com/arthurhd)
+* **Luiz Carlos Nascimento** - [Instagram](https://instagram.com/luizcnfilho)
+* **Vinícius Resende** - [Instagram](https://instagram.com/vinny_u.u_)
 
 ## Licença
 Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE.md](LICENSE.md) para obter detalhes
