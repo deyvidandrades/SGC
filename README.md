@@ -18,12 +18,12 @@ O que você precisa instalar para rodar o software:
 
 
 
-### Baixe ou clone o repositório
+## Baixe ou clone o repositório
 ```
 > git clone https://github.com/deyvidandrades/SGC.git
 ```
 
-### Configurando a IDE Intellij Idea
+## Configurando a IDE Intellij Idea
 
 Passo a passo que informam como configurar o ambiente de desenvolvimento para execução.
 
