@@ -7,8 +7,6 @@ import main.java.interfaces.PersistirDados;
 import main.res.valores.Dimensoes;
 import main.res.valores.Referencias;
 import main.res.valores.Strings;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -21,6 +19,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class CadastroFuncionarios implements FrameInterface, PersistirDados {
@@ -40,7 +39,7 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
 
     public CadastroFuncionarios() {
 
-        configuraTabela(getDados(Strings.DADOS_FUNCIONARIOS));
+        configuraTabela(getFuncionarios());
         configuraComboBox();
 
         privilegioCheckBox.addItemListener(new ItemListener() {
@@ -73,10 +72,10 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
 
-                if (!nomeText.getText().equals("") && !senhaText.getText().equals("") && !loginText.getText().equals("")) {
+                if (!nomeText.getText().equals("") && !String.valueOf(senhaText.getPassword()).equals("") && !loginText.getText().equals("")) {
                     Funcionario funcionario = new Funcionario(
                             nomeText.getText(),
-                            senhaText.getText(),
+                            String.valueOf(senhaText.getPassword()),
                             Objects.requireNonNull(comboCargo.getSelectedItem()).toString(),
                             loginText.getText(),
                             check);
@@ -84,7 +83,7 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
                     setDados(Strings.DADOS_FUNCIONARIOS, funcionario.toMap());
                     JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_NOVO_FUNCIONARIO);
 
-                    configuraTabela(getDados(Strings.DADOS_FUNCIONARIOS));
+                    configuraTabela(getFuncionarios());
 
                 } else {
                     JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_LOGIN_INVALIDO);
@@ -126,7 +125,7 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
         comboCargo.setModel(comboBoxModel);
     }
 
-    private void configuraTabela(JSONArray jsonArray) {
+    private void configuraTabela(ArrayList<Funcionario> funcionarios) {
 
         DefaultTableModel model = new DefaultTableModel() {
 
@@ -140,19 +139,17 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
             model.addColumn(name);
         }
 
-        for (Object object : jsonArray) {
-            JSONObject jsonObject = (JSONObject) object;
-
-            if (!((JSONObject) object).get("login").toString().equals("admin")) {
+        for (Funcionario funcionario : funcionarios) {
+            if (!funcionario.getLogin().equals("admin")) {
 
                 String acesso = "";
-                if ((boolean) jsonObject.get("acesso")) {
+                if (funcionario.getAcesso()) {
                     acesso = "Sim";
                 } else {
                     acesso = "Não";
                 }
 
-                Object[] objects = {jsonObject.get("nome"), jsonObject.get("cargo"), acesso};
+                Object[] objects = {funcionario.getNome(), funcionario.getCargo(), acesso};
                 model.addRow(objects);
             }
         }

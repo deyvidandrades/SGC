@@ -15,6 +15,10 @@ public class Funcionario {
     private String login;
     private long id;
 
+
+    public Funcionario() {
+    }
+
     public Funcionario(JSONObject funcionario) {
         this.nome = funcionario.getString("nome");
         this.acesso = funcionario.getBoolean("acesso");

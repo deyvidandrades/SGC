@@ -6,14 +6,17 @@ import java.util.Map;
 
 public class Venda {
 
-    private String tipoPagamento;
     private long carroID;
     private long clienteID;
     private long funcionarioID;
     private long id;
+    private String tipoPagamento;
 
-    public Venda(String pagamento, long carro, long cliente, long funcionario) {
-        this.tipoPagamento = pagamento;
+    public Venda() {
+    }
+
+    public Venda(String tipoPagamento, long carro, long cliente, long funcionario) {
+        this.tipoPagamento = tipoPagamento;
         this.carroID = carro;
         this.clienteID = cliente;
         this.funcionarioID = funcionario;
@@ -22,7 +25,7 @@ public class Venda {
         this.id = date.getTime();
     }
 
-    public String getPagamento() {
+    public String gettipoPagamento() {
         return tipoPagamento;
     }
 
@@ -38,15 +41,18 @@ public class Venda {
         return funcionarioID;
     }
 
+    public long getId() {
+        return id;
+    }
 
     public Map toMap() {
         Map<String, Object> map = new HashMap<String, Object>();
 
         map.put("id", id);
-        map.put("pagamento", tipoPagamento);
-        map.put("carro", carroID);
-        map.put("cliente", clienteID);
-        map.put("funcionario", funcionarioID);
+        map.put("tipoPagamento", tipoPagamento);
+        map.put("carroID", carroID);
+        map.put("clienteID", clienteID);
+        map.put("funcionarioID", funcionarioID);
 
         return map;
     }

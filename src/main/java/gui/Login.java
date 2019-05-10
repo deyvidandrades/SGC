@@ -28,19 +28,26 @@ public class Login extends VerificaFuncionario implements FrameInterface {
     public Login() {
         super();
 
+        assert false;
         img.setIcon(icone);
         footer.setText(Strings.FOOTER + "  v" + Strings.VERSAO);
 
         acessarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                Funcionario funcionario = new Funcionario("", passwordField1.getText(), "", textField1.getText(), false);
+                Funcionario funcionario = new Funcionario("", String.valueOf(passwordField1.getPassword()), "", textField1.getText(), false);
 
-                if (logar(funcionario)) {
-                    IniciarGUI.show(Referencias.DASH_GERENTE);
+                Funcionario logado = logar(funcionario);
 
-                } else
+                if (logado != null) {
+                    if (logado.getAcesso()) {
+                        IniciarGUI.show(Referencias.DASH_GERENTE);
+                    } else {
+                        IniciarGUI.show(Referencias.DASH_VENDEDOR);
+                    }
+                } else {
                     JOptionPane.showMessageDialog(null, Strings.MENSAGEM_LOGIN_INVALIDO);
+                }
             }
         });
 
@@ -66,6 +73,6 @@ public class Login extends VerificaFuncionario implements FrameInterface {
 
     @Override
     public void hide() {
-        frame.hide();
+        frame.setVisible(false);
     }
 }

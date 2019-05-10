@@ -1,41 +1,239 @@
 {
   "vendas": [
-    {}
+    {
+      "cliente": 1557232062651,
+      "carro": 1557434545164,
+      "id": 1557436195623,
+      "funcionario": 1557436290583,
+      "pagamento": "Debito"
+    },
+    {
+      "cliente": 1557232366938,
+      "carro": 1557434593592,
+      "id": 1557436204237,
+      "funcionario": 1555009078179,
+      "pagamento": "Debito"
+    },
+    {
+      "cliente": 1557232461448,
+      "carro": 1557434604982,
+      "id": 1557436214789,
+      "funcionario": 1555009078179,
+      "pagamento": "Credito"
+    },
+    {
+      "cliente": 1557232592380,
+      "carro": 1557434622458,
+      "id": 1557436223225,
+      "funcionario": 1555009078179,
+      "pagamento": "Credito"
+    },
+    {
+      "cliente": 1557232062651,
+      "carro": 1557434614144,
+      "id": 1557436231337,
+      "funcionario": 1555009078179,
+      "pagamento": "Credito"
+    }
   ],
   "funcionarios": [
     {
-      "senha": "asd123",
-      "acesso": true,
-      "nome": "Dave",
-      "id": "156841562",
-      "cargo": "Gerente"
-    },
-    {
       "senha": "admin",
       "acesso": true,
-      "nome": "admin",
-      "id": "",
-      "cargo": "admin"
+      "nome": "Administrador Padrão",
+      "id": 1557436290583,
+      "login": "admin",
+      "cargo": "Gerente"
     },
     {
       "senha": "aldo123",
       "acesso": false,
-      "nome": "Aldo",
-      "id": "1555009078179",
-      "cargo": "vendedor"
+      "nome": "Aldo De Oliveira",
+      "id": 1555009078179,
+      "login": "aldo",
+      "cargo": "Vendedor"
     },
     {
-      "senha": "teste123",
-      "nome": "Teste",
-      "id": "1555009222724",
-      "acesso": false,
-      "cargo": "vendedor"
+      "senha": "l123",
+      "acesso": true,
+      "nome": "Luiz Carlos",
+      "id": 1557446928607,
+      "cargo": "Gerente",
+      "login": "luiz.filho"
     }
   ],
   "clientes": [
-    {}
+    {
+      "idade": 23,
+      "documento": "123.456.789-20",
+      "nome": "Aldo de Oliveira",
+      "id": 1557232062651
+    },
+    {
+      "idade": 48,
+      "documento": "458.225.786-12",
+      "nome": "Ronaldo Nazário dos Santos",
+      "id": 1557232366938
+    },
+    {
+      "idade": 19,
+      "documento": "173.465.564-15",
+      "nome": "Flávio Algusto",
+      "id": 1557232461448
+    },
+    {
+      "idade": 21,
+      "documento": "256.112.556-15",
+      "nome": "Lucas Vichiato",
+      "id": 1557232592380
+    },
+    {
+      "idade": 20,
+      "documento": "268.123.998-88",
+      "nome": "Gabrielle Alves",
+      "id": 1557232643301
+    }
   ],
   "carros": [
-    {}
+    {
+      "preco": "36.000",
+      "cambio": "manual",
+      "opcionais": "ar condicionado, vidros elétricos, travas elétricas",
+      "marca": "Fiat",
+      "motor": "1.6",
+      "ano": "2014",
+      "portas": "4",
+      "combustível": "flex",
+      "cor": "branca",
+      "id": 1557434488501,
+      "quilometragem": "110.000",
+      "modelo": "Palio"
+    },
+    {
+      "preco": "40.000",
+      "cambio": "manual",
+      "opcionais": "ar condicionado, vidros elétricos, travas elétricas, alarme, Airbag, rádio",
+      "marca": "Fiat",
+      "motor": "1.8",
+      "ano": "2015",
+      "portas": "4",
+      "combustível": "flex",
+      "cor": "branca",
+      "id": 1557434523369,
+      "quilometragem": "10.000",
+      "modelo": "Punto"
+    },
+    {
+      "preco": "94.999",
+      "cambio": "automático",
+      "opcionais": "ar condicionado, vidros elétricos, travas elétricas, alarme, Airbag, computador de bordo, controle de tração",
+      "marca": "Fiat",
+      "motor": "2.0 turbo",
+      "ano": "2017",
+      "portas": "4",
+      "combustível": "diesel",
+      "cor": "branca",
+      "id": 1557434545164,
+      "quilometragem": "27.000",
+      "modelo": "Toro"
+    },
+    {
+      "preco": "62.990",
+      "cambio": "manual",
+      "opcionais": "ar condicionado, vidros elétricos, travas elétricas, Airbag, computador de bordo, rádio",
+      "marca": "Fiat",
+      "motor": "1.6",
+      "ano": "2019",
+      "portas": "4",
+      "combustível": "flex",
+      "cor": "vermelho",
+      "id": 1557434593592,
+      "quilometragem": "0",
+      "modelo": "Cronos"
+    },
+    {
+      "preco": "36.990",
+      "cambio": "manual",
+      "opcionais": "ar condicionado, vidros elétricos, travas elétricas",
+      "marca": "Fiat",
+      "motor": "1.0",
+      "ano": "2019",
+      "portas": "4",
+      "combustível": "flex",
+      "cor": "prata",
+      "id": 1557434604982,
+      "quilometragem": "0",
+      "modelo": "Mobi"
+    },
+    {
+      "preco": "68.470",
+      "cambio": "automático",
+      "opcionais": "ar condicionado, vidros elétricos, travas elétricas, Airbag, computador de bordo ",
+      "marca": "Volkswagen",
+      "motor": "1.0",
+      "ano": "2019",
+      "portas": "4",
+      "combustível": "flex",
+      "cor": "vermelho",
+      "id": 1557434622458,
+      "quilometragem": "0",
+      "modelo": "Polo"
+    },
+    {
+      "preco": "52.990",
+      "cambio": "manual",
+      "opcionais": "ar condicionado, vidros elétricos, travas elétricas, Airbag, computador de bordo ",
+      "marca": "Volkswagen",
+      "motor": "1.6",
+      "ano": "2019",
+      "portas": "4",
+      "combustível": "flex",
+      "cor": "cinza",
+      "id": 1557434614144,
+      "quilometragem": "0",
+      "modelo": "Fox"
+    },
+    {
+      "preco": "36.000",
+      "cambio": "manual",
+      "opcionais": "ar condicionado, vidros elétricos, travas elétricas, Airbag ",
+      "marca": "Volkswagen",
+      "motor": "1.6",
+      "ano": "2015",
+      "portas": "2",
+      "combustível": "flex",
+      "cor": "preto",
+      "id": 1557434633338,
+      "quilometragem": "60.000",
+      "modelo": "Saveiro"
+    },
+    {
+      "preco": "27.000",
+      "cambio": "manual",
+      "opcionais": "ar condicionado, vidros elétricos, travas elétricas, ",
+      "marca": "Volkswagen",
+      "motor": "1.0",
+      "ano": "2015",
+      "portas": "4",
+      "combustível": "flex",
+      "cor": "prata",
+      "id": 1557434640939,
+      "quilometragem": "84.000",
+      "modelo": "Gol"
+    },
+    {
+      "preco": "189.990",
+      "cambio": "automático",
+      "opcionais": "ar condicionado, vidros elétricos, travas elétricas, Airbag, computador de bordo, tração 4x4, GPS ",
+      "marca": "Volkswagen",
+      "motor": "1.0",
+      "ano": "2019",
+      "portas": "4",
+      "combustível": "diesel",
+      "cor": "branca",
+      "id": 1557434652072,
+      "quilometragem": "0",
+      "modelo": "Amarok"
+    }
   ]
 }

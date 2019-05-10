@@ -9,6 +9,9 @@ public abstract class Pessoa implements PersistirDados {
     private String nome;
     private long id;
 
+    public Pessoa() {
+    }
+
     public Pessoa(String nome) {
         Date date = new Date();
         this.nome = nome;

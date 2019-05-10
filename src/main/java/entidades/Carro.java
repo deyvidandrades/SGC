@@ -5,102 +5,122 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Carro {
-    private String modelo;
-    private float preco;
     private String cor;
-    private short numPortas;
-    private String consumo;
-    private int potencia;
-    private int torque;
-    private boolean arCondicionado;
-    private boolean vidrosEletricos;
-    private boolean travasEletricas;
-    private boolean alarme;
-    private float litro;
-    private long id;
+    private String marca;
+    private String modelo;
+    private String cambio;
+    private String opcionais;
+    private String combustivel;
 
-    public Carro(String modelo, float preco, String cor, short numPortas, String consumo, int potencia, int torque, boolean arCondicionado, boolean vidrosEletricos, boolean travasEletricas, boolean alarme, float litro) {
-        this.modelo = modelo;
-        this.preco = preco;
+    private long id;
+    private int ano;
+    private short numPortas;
+
+    private double preco;
+    private double torque;
+    private double quilometragem;
+
+    private float litro;
+    private boolean vendido;
+
+    public Carro() {
+    }
+
+    public Carro(String cor, String marca, String modelo, String cambio, String opcionais, String combustivel, int ano, short numPortas, double preco, double torque, double quilometragem, float litro) {
         this.cor = cor;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.cambio = cambio;
+        this.opcionais = opcionais;
+        this.combustivel = combustivel;
+        this.ano = ano;
         this.numPortas = numPortas;
-        this.consumo = consumo;
-        this.potencia = potencia;
+        this.preco = preco;
         this.torque = torque;
-        this.arCondicionado = arCondicionado;
-        this.vidrosEletricos = vidrosEletricos;
-        this.travasEletricas = travasEletricas;
-        this.alarme = alarme;
+        this.quilometragem = quilometragem;
         this.litro = litro;
 
         Date date = new Date();
         this.id = date.getTime();
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public float getPreco() {
-        return preco;
+        this.vendido = false;
     }
 
     public String getCor() {
         return cor;
     }
 
+    public String getMarca() {
+        return marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public String getCambio() {
+        return cambio;
+    }
+
+    public String getOpcionais() {
+        return opcionais;
+    }
+
+    public String getCombustivel() {
+        return combustivel;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
     public short getNumPortas() {
         return numPortas;
     }
 
-    public String getConsumo() {
-        return consumo;
+    public double getPreco() {
+        return preco;
     }
 
-    public int getPotencia() {
-        return potencia;
-    }
-
-    public int getTorque() {
+    public double getTorque() {
         return torque;
     }
 
-    public boolean isArCondicionado() {
-        return arCondicionado;
+    public double getQuilometragem() {
+        return quilometragem;
     }
 
-    public boolean isVidrosEletricos() {
-        return vidrosEletricos;
+    public boolean isVendido() {
+        return vendido;
     }
 
-    public boolean isTravasEletricas() {
-        return travasEletricas;
-    }
-
-    public boolean isAlarme() {
-        return alarme;
-    }
-
-    public float getLitro() {
-        return litro;
+    public void setVendido(boolean vendido) {
+        this.vendido = vendido;
     }
 
     public Map toMap() {
         Map<String, Object> map = new HashMap<String, Object>();
 
-        map.put("modelo", modelo);
-        map.put("preco", preco);
         map.put("cor", cor);
-        map.put("numPortas", numPortas);
-        map.put("consumo", consumo);
-        map.put("potencia", potencia);
-        map.put("torque", torque);
-        map.put("arCondicionado", arCondicionado);
-        map.put("vidrosEletricos", vidrosEletricos);
-        map.put("travasEletricas", travasEletricas);
-        map.put("alarme", alarme);
-        map.put("litro", litro);
+        map.put("marca", marca);
+        map.put("modelo", modelo);
+        map.put("cambio", cambio);
+        map.put("opcionais", opcionais);
+        map.put("combustivel", combustivel);
+
         map.put("id", id);
+        map.put("ano", ano);
+        map.put("numPortas", numPortas);
+
+        map.put("preco", preco);
+        map.put("torque", torque);
+        map.put("quilometragem", quilometragem);
+
+        map.put("litro", litro);
+        map.put("vendido", vendido);
 
         return map;
     }

@@ -1,13 +1,15 @@
 package main.java.gui;
 
 import main.java.assistentes.IniciarGUI;
+import main.java.entidades.Carro;
+import main.java.entidades.Cliente;
+import main.java.entidades.Funcionario;
+import main.java.entidades.Venda;
 import main.java.interfaces.FrameInterface;
 import main.java.interfaces.PersistirDados;
 import main.res.valores.Dimensoes;
 import main.res.valores.Referencias;
 import main.res.valores.Strings;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -16,6 +18,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class DashboardGerente implements FrameInterface, PersistirDados {
 
@@ -71,7 +74,7 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
     }
 
     private void configuraTabelaVendas() {
-        JSONArray jsonArray = getDados(Strings.DADOS_VENDAS);
+        ArrayList<Venda> vendas = getVendas();
 
         DefaultTableModel model = new DefaultTableModel() {
 
@@ -86,15 +89,13 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
             model.addColumn(name);
         }
 
-        for (Object object : jsonArray) {
-            JSONObject jsonObject = (JSONObject) object;
-
+        for (Venda venda : vendas) {
             Object[] objects = {
-                    jsonObject.get("id"),
-                    getNomeCliente((long) jsonObject.get("cliente")),
-                    jsonObject.get("pagamento"),
-                    getModeloCarro((long) jsonObject.get("carro")),
-                    getVendedor((long) jsonObject.get("funcionario"))};
+                    venda.getId(),
+                    getNomeCliente(venda.getClienteID()),
+                    venda.gettipoPagamento(),
+                    getModeloCarro(venda.getCarroID()),
+                    getVendedor(venda.getFuncionarioID())};
 
             model.addRow(objects);
         }
@@ -115,7 +116,7 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
     }
 
     private void configuraTabelaEstoque() {
-        JSONArray jsonArray = getDados(Strings.DADOS_CARROS);
+        ArrayList<Carro> carros = getCarros();
 
         DefaultTableModel model = new DefaultTableModel() {
 
@@ -130,9 +131,8 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
             model.addColumn(name);
         }
 
-        for (Object object : jsonArray) {
-            JSONObject jsonObject = (JSONObject) object;
-            Object[] objects = {jsonObject.get("id"), jsonObject.get("marca"), jsonObject.get("modelo"), jsonObject.get("ano"), jsonObject.get("preco")};
+        for (Carro carro : carros) {
+            Object[] objects = {carro.getId(), carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPreco() * 1000};
             model.addRow(objects);
         }
 
@@ -153,13 +153,11 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
 
     private String getNomeCliente(long id) {
 
-        JSONArray jsonArray = getDados(Strings.DADOS_CLIENTES);
+        ArrayList<Cliente> clientes = getClientes();
 
-        for (Object object : jsonArray) {
-            JSONObject jsonObject = (JSONObject) object;
-
-            if ((long) jsonObject.get("id") == id) {
-                return (String) jsonObject.get("nome");
+        for (Cliente cliente : clientes) {
+            if (cliente.getId() == id) {
+                return cliente.getNome();
             }
         }
 
@@ -168,13 +166,11 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
 
     private String getModeloCarro(long id) {
 
-        JSONArray jsonArray = getDados(Strings.DADOS_CARROS);
+        ArrayList<Carro> carros = getCarros();
 
-        for (Object object : jsonArray) {
-            JSONObject jsonObject = (JSONObject) object;
-
-            if ((long) jsonObject.get("id") == id) {
-                return jsonObject.get("modelo") + " (" + jsonObject.get("marca") + ")";
+        for (Carro carro : carros) {
+            if (carro.getId() == id) {
+                return carro.getModelo() + " (" + carro.getMarca() + ")";
             }
         }
 
@@ -183,13 +179,11 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
 
     private String getVendedor(long id) {
 
-        JSONArray jsonArray = getDados(Strings.DADOS_FUNCIONARIOS);
+        ArrayList<Funcionario> funcionarios = getFuncionarios();
 
-        for (Object object : jsonArray) {
-            JSONObject jsonObject = (JSONObject) object;
-
-            if ((long) jsonObject.get("id") == id) {
-                return jsonObject.get("nome").toString();
+        for (Funcionario funcionario : funcionarios) {
+            if (funcionario.getId() == id) {
+                return funcionario.getNome();
             }
         }
 

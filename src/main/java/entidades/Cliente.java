@@ -7,6 +7,10 @@ public class Cliente extends Pessoa {
     private String documento;
     private int idade;
 
+    public Cliente() {
+        super();
+    }
+
     public Cliente(String nome, String documento, int idade) {
         super(nome);
 

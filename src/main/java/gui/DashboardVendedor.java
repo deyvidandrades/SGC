@@ -15,11 +15,12 @@ public class DashboardVendedor implements FrameInterface {
 
 
     private JPanel panel1;
+    private JButton button1;
     private JLabel label1;
 
 
     public DashboardVendedor() {
-        label1.setText(Referencias.FUNCIONARIO.getNome());
+        button1.setText(Referencias.FUNCIONARIO.getNome());
 
     }
 
