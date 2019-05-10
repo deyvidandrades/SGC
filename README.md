@@ -18,12 +18,12 @@ O que você precisa instalar para rodar o software:
 
 
 
-## Baixe ou clone o repositório
+### Baixe ou clone o repositório
 ```
 > git clone https://github.com/deyvidandrades/SGC.git
 ```
 
-## Configurando a IDE Intellij Idea
+### Configurando a IDE Intellij Idea
 
 Passo a passo que informam como configurar o ambiente de desenvolvimento para execução.
 
@@ -37,11 +37,10 @@ file > Project Estructure > Libraries > + > Java > (biblioteca) > OK
 Configure os artefatos e marque a opção **include in project build**
 
 ```
-file > Project Estructure > Artifacts > + > JAR > from modules with dependencies >
+file > Project Estructure > Artifacts > + > JAR > from modules with dependencies
 ```
 ## Construindo o projeto
-Construa o projeto (ctrl+f9)
-Crie uma configuração de executável **Jar Application**:
+Construa o projeto (**ctrl+f9**) e crie uma configuração de executável **Jar Application**:
 ```
 > Run > Edit Configurations > + > Jar Application
 ```
