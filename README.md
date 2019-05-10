@@ -38,6 +38,8 @@ Configure os artefatos e o executável
 ```
 file > Project Estructure > Artifacts > + > JAR > from modules with dependencies >
 ```
+Construa o projeto (ctrl+f9)
+
 Crie uma configuração de executável **Jar Application**. 
 ```
 > Run > Edit Configurations > + > Jar Application
