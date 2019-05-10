@@ -5,11 +5,11 @@
 
 A proposta inicial é de apresentar um sistema de gestão para concessionárias, onde os gerentes e diretores possam acompanhar o estoque de automóveis, solicitar novos veículos e acompanhar as vendas. Onde os vendedores possam consultar os dados à cerca do veículo e realizar a venda de um veículo à um cliente. O foco principal tornar simples os processos de compra, venda e reposição de automóveis para diferentes concessionárias.
 
-## Primeiros passos
+# Primeiros passos
 
 Essas instruções farão com que você tenha uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste. Veja a implantação de notas sobre como implantar o projeto em um sistema ativo.
 
-### Prérequisitos
+## Prérequisitos
 
 O que você precisa instalar para rodar o software:
 * [Java Jdk](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) - Ambiente de desenvolvimento Java
@@ -18,12 +18,12 @@ O que você precisa instalar para rodar o software:
 
 
 
-### Baixe ou clone o repositório
+## Baixe ou clone o repositório
 ```
 > git clone https://github.com/deyvidandrades/SGC.git
 ```
 
-### Configurando a IDE Intellij Idea
+## Configurando a IDE Intellij Idea
 
 Passo a passo que informam como configurar o ambiente de desenvolvimento para execução.
 
