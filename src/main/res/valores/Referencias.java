@@ -15,13 +15,16 @@ public abstract class Referencias {
 
 
     //CABECALHOS DE TABELAS//
+    public static Object[] COLUNAS_INFO = {"Propriedade", "Descrição"};
     public static Object[] COLUNAS_FUNCIONARIOS = {"Nome", "Cargo", "Privilegio"};
     public static Object[] COLUNAS_ESTOQUE = {"ID", "Marca", "Modelo", "Ano", "Preço"};
     public static Object[] COLUNAS_VENDAS = {"ID", "Comprador", "Pagamento", "Veículo", "Vendedor"};
+    public static Object[] LINHAS_CARRO = {"Modelo", "Marca", "Ano", "Preço", "Cor", "Portas", "Câmbio", "Quilometragem", "Torque", "Combustível", "Opicionáis"};
 
     //COMBOBOX//
     public static Object[] FORNECEDORES = {"Fiat", "Volkswagen"};
     public static Object[] COLUNAS_CARGOS = {"Assistente", "Gerente", "Vendedor"};
+    public static Object[] COLUNAS_FORMAS_PAGAMENTO = {"Credito", "Debito", "Financiamento"};
     public static Object[] MODELOS = {"Palio", "Punto", "Toro", "Cronos", "Mobi", "Polo", "Fox", "Saveiro", "Gol", "Amarok"};
 
 }

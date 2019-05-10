@@ -27,13 +27,6 @@
       "funcionarioID": 1555009078179,
       "id": 1557436223225,
       "tipoPagamento": "Credito"
-    },
-    {
-      "clienteID": 1557232062651,
-      "carroID": 1557434614144,
-      "funcionarioID": 1555009078179,
-      "id": 1557436231337,
-      "tipoPagamento": "Credito"
     }
   ],
   "funcionarios": [
@@ -55,9 +48,9 @@
     },
     {
       "senha": "teste",
+      "acesso": true,
       "nome": "Teste Testando",
       "id": 1557498912884,
-      "acesso": true,
       "cargo": "Assistente",
       "login": "teste"
     }
@@ -136,7 +129,7 @@
       "opcionais": "ar condicionado, vidros elétricos, travas elétricas, alarme, Airbag, computador de bordo, controle de tração",
       "marca": "Fiat",
       "numPortas": 4,
-      "vendido": false,
+      "vendido": true,
       "id": 1557434545164,
       "quilometragem": 27
     },
@@ -181,7 +174,7 @@
       "opcionais": "ar condicionado, vidros elétricos, travas elétricas, Airbag, computador de bordo ",
       "marca": "Volkswagen",
       "numPortas": 4,
-      "vendido": false,
+      "vendido": true,
       "id": 1557434622458,
       "quilometragem": 0
     },
@@ -216,34 +209,34 @@
       "quilometragem": 60
     },
     {
-      "cambio": "manual",
-      "ano": 2015,
-      "combustivel": "flex",
-      "cor": "prata",
-      "torque": 1,
-      "modelo": "Gol",
-      "preco": 27,
-      "opcionais": "ar condicionado, vidros elétricos, travas elétricas, ",
-      "marca": "Volkswagen",
-      "numPortas": 4,
-      "vendido": false,
-      "id": 1557434640939,
-      "quilometragem": 84
-    },
-    {
       "cambio": "automático",
-      "ano": 2019,
       "combustivel": "diesel",
+      "ano": 2019,
       "cor": "branca",
       "torque": 1,
       "modelo": "Amarok",
-      "preco": 189.99,
       "opcionais": "ar condicionado, vidros elétricos, travas elétricas, Airbag, computador de bordo, tração 4x4, GPS ",
+      "preco": 189.99,
       "marca": "Volkswagen",
       "numPortas": 4,
       "vendido": false,
       "id": 1557434652072,
       "quilometragem": 0
+    },
+    {
+      "cambio": "manual",
+      "combustivel": "flex",
+      "ano": 2015,
+      "cor": "prata",
+      "torque": 1,
+      "modelo": "Gol",
+      "opcionais": "ar condicionado, vidros elétricos, travas elétricas, ",
+      "preco": 27,
+      "marca": "Volkswagen",
+      "numPortas": 4,
+      "vendido": false,
+      "id": 1557434640939,
+      "quilometragem": 84
     }
   ]
 }

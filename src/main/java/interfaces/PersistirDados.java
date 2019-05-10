@@ -124,4 +124,42 @@ public interface PersistirDados {
             e.printStackTrace();
         }
     }
+
+    default void atualizarCarro(long carroId, Map map) {
+        try {
+            String content = FileUtils.readFileToString(file, "utf-8");
+            JSONObject jsonObject = new JSONObject(content);
+
+            JSONArray jsonArray = (JSONArray) jsonObject.get(Strings.DADOS_CARROS);
+
+            int i = 0, indice = 0;
+            for (Object object : jsonArray) {
+                ObjectMapper m = new ObjectMapper();
+
+                Carro carro = null;
+                try {
+                    carro = m.readValue(object.toString(), Carro.class);
+
+                    if (carro.getId() == carroId) {
+                        indice = i;
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                i++;
+            }
+
+            jsonArray.remove(indice);
+            jsonArray.put(map);
+
+            FileWriter fileWriter = new FileWriter(file);
+            fileWriter.write(jsonObject.toString());
+            fileWriter.flush();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

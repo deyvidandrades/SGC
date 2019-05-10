@@ -132,8 +132,10 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
         }
 
         for (Carro carro : carros) {
-            Object[] objects = {carro.getId(), carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPreco() * 1000};
-            model.addRow(objects);
+            if (!carro.isVendido()) {
+                Object[] objects = {carro.getId(), carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPreco() * 1000};
+                model.addRow(objects);
+            }
         }
 
         tabelaEstoque.setModel(model);
@@ -212,5 +214,6 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
     public void hide() {
         frame.setVisible(false);
     }
+
 }
 

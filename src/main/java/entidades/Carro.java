@@ -20,13 +20,12 @@ public class Carro {
     private double torque;
     private double quilometragem;
 
-    private float litro;
     private boolean vendido;
 
     public Carro() {
     }
 
-    public Carro(String cor, String marca, String modelo, String cambio, String opcionais, String combustivel, int ano, short numPortas, double preco, double torque, double quilometragem, float litro) {
+    public Carro(String cor, String marca, String modelo, String cambio, String opcionais, String combustivel, int ano, short numPortas, double preco, double torque, double quilometragem) {
         this.cor = cor;
         this.marca = marca;
         this.modelo = modelo;
@@ -38,7 +37,6 @@ public class Carro {
         this.preco = preco;
         this.torque = torque;
         this.quilometragem = quilometragem;
-        this.litro = litro;
 
         Date date = new Date();
         this.id = date.getTime();
@@ -101,6 +99,10 @@ public class Carro {
         this.vendido = vendido;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public Map toMap() {
         Map<String, Object> map = new HashMap<String, Object>();
 
@@ -119,7 +121,6 @@ public class Carro {
         map.put("torque", torque);
         map.put("quilometragem", quilometragem);
 
-        map.put("litro", litro);
         map.put("vendido", vendido);
 
         return map;
