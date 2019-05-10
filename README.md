@@ -1,14 +1,15 @@
 
+
 # SGC - Sistema Gerenciador de Concessionária
 #### [Projeto prático](https://github.com/deyvidandrades/SGC) desenvoldido na disciplina de Paradigmas de Linguagens de Programação.
 
 A proposta inicial é de apresentar um sistema de gestão para concessionárias, onde os gerentes e diretores possam acompanhar o estoque de automóveis, solicitar novos veículos e acompanhar as vendas. Onde os vendedores possam consultar os dados à cerca do veículo e realizar a venda de um veículo à um cliente. O foco principal tornar simples os processos de compra, venda e reposição de automóveis para diferentes concessionárias.
 
-## Primeiros passos
+# Primeiros passos
 
 Essas instruções farão com que você tenha uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste. Veja a implantação de notas sobre como implantar o projeto em um sistema ativo.
 
-### Prérequisitos
+## Prérequisitos
 
 O que você precisa instalar para rodar o software:
 * [Java Jdk](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) - Ambiente de desenvolvimento Java
@@ -17,12 +18,12 @@ O que você precisa instalar para rodar o software:
 
 
 
-### Baixe ou clone o repositório
+## Baixe ou clone o repositório
 ```
 > git clone https://github.com/deyvidandrades/SGC.git
 ```
 
-### Configurando a IDE Intellij Idea
+## Configurando a IDE Intellij Idea
 
 Passo a passo que informam como configurar o ambiente de desenvolvimento para execução.
 
@@ -32,18 +33,20 @@ Importe as bibliotecas utilizadas no projeto, localizadas em: (**src/bibliotecas
 file > Project Estructure > Libraries > + > Java > (biblioteca) > OK
 ```
 
-
-Configure os artefatos e o executável
+## Configurando os artefatos
+Configure os artefatos e marque a opção **include in project build**
 
 ```
-file > Project Estructure > Artifacts > + > JAR > from modules with dependencies >
+file > Project Estructure > Artifacts > + > JAR > from modules with dependencies
 ```
-Crie uma configuração de executável **Jar Application**. 
+## Construindo o projeto
+Construa o projeto (**ctrl+f9**) e crie uma configuração de executável **Jar Application**:
 ```
 > Run > Edit Configurations > + > Jar Application
 ```
-E selecione o caminho onde foi criado o .jar: (**/output/artifacts/dal_jar/DAL.jar**)
+Selecione o caminho onde foi criado o .jar: (**/output/artifacts/dal_jar/DAL.jar**)
 
+## Executando  SGC
 Adicione o artefato à nova configuração:
 ```
 > Before Launch > + > Build Artifacts > DAL.jar
@@ -51,12 +54,10 @@ Adicione o artefato à nova configuração:
 
 Agora você pode rodar o programa diretamente do Intellij Idea.
 
-## Rodando o SGC
 
-Como usar o SGC
+## Como usar o SGC
 
-### Usuários
-
+### Login
 Entre com o login e a senha padrão e crie seu usuário e dê as devidas permissões.
 
 ```
