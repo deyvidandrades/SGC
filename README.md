@@ -1,5 +1,6 @@
 
 # SGC - Sistema Gerenciador de Concessionária
+#### [Projeto prático](https://github.com/deyvidandrades/SGC) desenvoldido na disciplina de Paradigmas de Linguagens de Programação.
 
 A proposta inicial é de apresentar um sistema de gestão para concessionárias, onde os gerentes e diretores possam acompanhar o estoque de automóveis, solicitar novos veículos e acompanhar as vendas. Onde os vendedores possam consultar os dados à cerca do veículo e realizar a venda de um veículo à um cliente. O foco principal tornar simples os processos de compra, venda e reposição de automóveis para diferentes concessionárias.
 
@@ -12,8 +13,6 @@ Essas instruções farão com que você tenha uma cópia do projeto em execuçã
 O que você precisa instalar para rodar o software:
 * [Java Jdk](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) - Ambiente de desenvolvimento Java
 * [Intellij Idea](https://www.jetbrains.com/idea/download/) - IDE usada no projeto
-* [Commons-io](https://commons.apache.org/proper/commons-io/download_io.cgi) - Commons-io 2.6
-* [JSON](https://github.com/stleary/JSON-java) - Json-java 20180813
 
 
 
@@ -27,19 +26,24 @@ O que você precisa instalar para rodar o software:
 
 Passo a passo que informam como configurar o ambiente de desenvolvimento para execução.
 
+Importe as bibliotecas utilizadas no projeto, localizadas em: (**src/bibliotecas**)
 
-Abra o projeto no Intellij Idea para configurar os artefatos e o executável
+```
+file > Project Estructure > Libraries > + > Java > (biblioteca) > OK
+```
+
+
+Configure os artefatos e o executável
 
 ```
 file > Project Estructure > Artifacts > + > JAR > from modules with dependencies >
 ```
-Construa o projeto e antes de compilar e executar faça o seguinte:
+Crie uma configuração de executável **Jar Application**. 
 ```
-Run > Edit Configurations > + > Jar Application
+> Run > Edit Configurations > + > Jar Application
+```
+E selecione o caminho onde foi criado o .jar: (**/output/artifacts/dal_jar/DAL.jar**)
 
-Selecione o pach onde foi criado o .jar:
-/output/artifacts/dal_jar/DAL.jar
-```
 Adicione o artefato à nova configuração:
 ```
 > Before Launch > + > Build Artifacts > DAL.jar
@@ -62,9 +66,11 @@ Simule a venda de carros, controle de estoque e financeiro
 
 ## Ferramentas e Bibliotecas
 
+* [Java Jdk](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) - Ambiente de desenvolvimento Java
 * [Intellij Idea](https://www.jetbrains.com/idea/download/) - IDE usada no projeto
-* [Commons-io](https://commons.apache.org/proper/commons-io/download_io.cgi) - Commons-io 2.6
-* [JSON](https://github.com/stleary/JSON-java) - Json-java 20180813
+* [Commons-io](https://github.com/deyvidandrades/SGC/tree/master2/src/bibliotecas/commons-io-2.6.jar) - Commons-io 2.6
+* [JSON](https://github.com/deyvidandrades/SGC/tree/master2/src/bibliotecas/json-20180813.jar) - Json-java 20180813
+* [ObjectMapper](https://github.com/deyvidandrades/SGC/tree/master2/src/bibliotecas/jackson-all-1.9.0.jar) - Jackson
 
 ## Versão
 
@@ -73,8 +79,9 @@ Simule a venda de carros, controle de estoque e financeiro
 ## Autores
 
 * **Deyvid Andrade** - [Instagram](https://instagram.com/deyvidandrades)
- * **Arthur Hauck Dittz** - [Instagram](https://instagram.com/arthurhd)
- * **Luiz Carlos Nascimento** - [Instagram](https://instagram.com/luizcnfilho)
+* **Arthur Hauck Dittz** - [Instagram](https://instagram.com/arthurhd)
+* **Luiz Carlos Nascimento** - [Instagram](https://instagram.com/luizcnfilho)
+* **Vinícius Resende** - [Instagram](https://instagram.com/vinny_u.u_)
 
 ## Licença
 Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE.md](LICENSE.md) para obter detalhes
