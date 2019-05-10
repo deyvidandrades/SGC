@@ -33,7 +33,7 @@ file > Project Estructure > Libraries > + > Java > (biblioteca) > OK
 ```
 
 
-Configure os artefatos e o executável
+Configure os artefatos e marque a opção **include in project build**
 
 ```
 file > Project Estructure > Artifacts > + > JAR > from modules with dependencies >
