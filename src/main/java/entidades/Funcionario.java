@@ -13,14 +13,14 @@ public class Funcionario {
     private String senha;
     private String cargo;
     private String login;
-    private String id;
+    private long id;
 
     public Funcionario(JSONObject funcionario) {
         this.nome = funcionario.getString("nome");
         this.acesso = funcionario.getBoolean("acesso");
         this.senha = funcionario.getString("senha");
         this.cargo = funcionario.getString("cargo");
-        this.id = funcionario.getString("id");
+        this.id = funcionario.getLong("id");
         this.login = funcionario.getString("login");
     }
 
@@ -34,7 +34,7 @@ public class Funcionario {
         this.senha = senha;
         this.cargo = cargo;
         this.login = login;
-        this.id = String.valueOf(time);
+        this.id = time;
     }
 
     public String getNome() {
@@ -57,7 +57,7 @@ public class Funcionario {
         return login;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 

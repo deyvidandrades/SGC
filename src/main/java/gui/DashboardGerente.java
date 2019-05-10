@@ -89,7 +89,13 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
         for (Object object : jsonArray) {
             JSONObject jsonObject = (JSONObject) object;
 
-            Object[] objects = {jsonObject.get("id"), jsonObject.get("cliente"), jsonObject.get("pagamento"), jsonObject.get("carro"), jsonObject.get("funcionario")};
+            Object[] objects = {
+                    jsonObject.get("id"),
+                    getNomeCliente((long) jsonObject.get("cliente")),
+                    jsonObject.get("pagamento"),
+                    getModeloCarro((long) jsonObject.get("carro")),
+                    getVendedor((long) jsonObject.get("funcionario"))};
+
             model.addRow(objects);
         }
 
@@ -143,6 +149,51 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
                 }
             }
         });
+    }
+
+    private String getNomeCliente(long id) {
+
+        JSONArray jsonArray = getDados(Strings.DADOS_CLIENTES);
+
+        for (Object object : jsonArray) {
+            JSONObject jsonObject = (JSONObject) object;
+
+            if ((long) jsonObject.get("id") == id) {
+                return (String) jsonObject.get("nome");
+            }
+        }
+
+        return null;
+    }
+
+    private String getModeloCarro(long id) {
+
+        JSONArray jsonArray = getDados(Strings.DADOS_CARROS);
+
+        for (Object object : jsonArray) {
+            JSONObject jsonObject = (JSONObject) object;
+
+            if ((long) jsonObject.get("id") == id) {
+                return jsonObject.get("modelo") + " (" + jsonObject.get("marca") + ")";
+            }
+        }
+
+        return null;
+    }
+
+    private String getVendedor(long id) {
+
+        JSONArray jsonArray = getDados(Strings.DADOS_FUNCIONARIOS);
+
+        for (Object object : jsonArray) {
+            JSONObject jsonObject = (JSONObject) object;
+
+            if ((long) jsonObject.get("id") == id) {
+                return jsonObject.get("nome").toString();
+            }
+        }
+
+        return null;
     }
 
     @Override

@@ -49,6 +49,25 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
             }
         });
 
+        privilegioCheckBox.setSelected(false);
+
+        comboCargo.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent itemEvent) {
+                if (Objects.requireNonNull(comboCargo.getSelectedItem()).toString().equals(Referencias.COLUNAS_CARGOS[1])) {
+                    privilegioCheckBox.setSelected(true);
+                    privilegioCheckBox.setEnabled(false);
+
+                } else if (Objects.requireNonNull(comboCargo.getSelectedItem()).toString().equals(Referencias.COLUNAS_CARGOS[2])) {
+                    privilegioCheckBox.setSelected(false);
+                    privilegioCheckBox.setEnabled(false);
+
+                } else {
+                    privilegioCheckBox.setEnabled(true);
+                    privilegioCheckBox.setSelected(false);
+                }
+            }
+        });
 
         cadastrarFuncionarioButton.addActionListener(new ActionListener() {
             @Override
@@ -123,8 +142,19 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
 
         for (Object object : jsonArray) {
             JSONObject jsonObject = (JSONObject) object;
-            Object[] objects = {jsonObject.get("nome"), jsonObject.get("cargo"), jsonObject.get("acesso")};
-            model.addRow(objects);
+
+            if (!((JSONObject) object).get("login").toString().equals("admin")) {
+
+                String acesso = "";
+                if ((boolean) jsonObject.get("acesso")) {
+                    acesso = "Sim";
+                } else {
+                    acesso = "Não";
+                }
+
+                Object[] objects = {jsonObject.get("nome"), jsonObject.get("cargo"), acesso};
+                model.addRow(objects);
+            }
         }
 
         table1.setModel(model);
@@ -135,7 +165,6 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
                 int row = table1.rowAtPoint(evt.getPoint());
                 int col = table1.columnAtPoint(evt.getPoint());
                 if (row >= 0 && col >= 0) {
-
                     JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_NAO_IMPLEMENTADO);
                 }
             }

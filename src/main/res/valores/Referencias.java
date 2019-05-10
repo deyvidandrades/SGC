@@ -11,7 +11,7 @@ public abstract class Referencias {
 
     public static Funcionario FUNCIONARIO;
 
-    public static Object[] COLUNAS_VENDAS = {"ID", "Comprador", "Veículo", "Pagamento", "Vendedor"};
+    public static Object[] COLUNAS_VENDAS = {"ID", "Comprador", "Pagamento", "Veículo", "Vendedor"};
     public static Object[] COLUNAS_ESTOQUE = {"ID", "Marca", "Modelo", "Ano", "Preço"};
 
     public static Object[] COLUNAS_FUNCIONARIOS = {"Nome", "Cargo", "Privilegio"};
