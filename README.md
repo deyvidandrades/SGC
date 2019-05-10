@@ -1,4 +1,5 @@
 
+
 # SGC - Sistema Gerenciador de Concessionária
 #### [Projeto prático](https://github.com/deyvidandrades/SGC) desenvoldido na disciplina de Paradigmas de Linguagens de Programação.
 
@@ -32,20 +33,21 @@ Importe as bibliotecas utilizadas no projeto, localizadas em: (**src/bibliotecas
 file > Project Estructure > Libraries > + > Java > (biblioteca) > OK
 ```
 
-
+## Configurando os artefatos
 Configure os artefatos e marque a opção **include in project build**
 
 ```
 file > Project Estructure > Artifacts > + > JAR > from modules with dependencies >
 ```
+## Construindo o projeto
 Construa o projeto (ctrl+f9)
-
-Crie uma configuração de executável **Jar Application**. 
+Crie uma configuração de executável **Jar Application**:
 ```
 > Run > Edit Configurations > + > Jar Application
 ```
-E selecione o caminho onde foi criado o .jar: (**/output/artifacts/dal_jar/DAL.jar**)
+Selecione o caminho onde foi criado o .jar: (**/output/artifacts/dal_jar/DAL.jar**)
 
+## Executando  SGC
 Adicione o artefato à nova configuração:
 ```
 > Before Launch > + > Build Artifacts > DAL.jar
@@ -53,12 +55,10 @@ Adicione o artefato à nova configuração:
 
 Agora você pode rodar o programa diretamente do Intellij Idea.
 
-## Rodando o SGC
 
-Como usar o SGC
+## Como usar o SGC
 
-### Usuários
-
+### Login
 Entre com o login e a senha padrão e crie seu usuário e dê as devidas permissões.
 
 ```
