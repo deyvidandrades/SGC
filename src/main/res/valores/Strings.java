@@ -19,6 +19,7 @@ public abstract class Strings {
     public static String MENSAGEM_NOVO_FUNCIONARIO = "Funcionario adicionado com sucesso";
     public static String MENSAGEM_COMPRA_REALIZADA = "Compra realizada.";
 
+
     //RECURSOS GRAFICOS//
     public static String ICONE = "src/main/res/imagens/dal.png";
 
