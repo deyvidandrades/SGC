@@ -4,27 +4,22 @@ import main.java.interfaces.PersistirDados;
 
 import java.util.Date;
 
-public abstract class Pessoa implements PersistirDados {
+public class Pessoa implements PersistirDados {
 
     private String nome;
     private long id;
 
-    public Pessoa() {
+    Pessoa() {
+        id = new Date().getTime();
     }
 
-    public Pessoa(String nome) {
-        Date date = new Date();
+    Pessoa(String nome, long id) {
         this.nome = nome;
-        this.id = date.getTime();
+        this.id = id;
     }
-
 
     public String getNome() {
         return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public long getId() {

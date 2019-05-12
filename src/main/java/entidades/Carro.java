@@ -71,6 +71,10 @@ public class Carro {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public int getAno() {
         return ano;
     }
@@ -97,10 +101,6 @@ public class Carro {
 
     public void setVendido(boolean vendido) {
         this.vendido = vendido;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public Map toMap() {

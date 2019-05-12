@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class DashboardGerente implements FrameInterface, PersistirDados {
 
@@ -32,6 +33,12 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
     private JButton comprarVeiculoButton;
     private JLabel ola;
     private JButton sairButton;
+    private static double TOTAL;
+    private static int ESTOQUE;
+    private static int VENDIDOS;
+    private JLabel lucroTotal;
+    private JLabel carrosEstoque;
+    private JLabel carrosVendidos;
 
     public DashboardGerente() {
         super();
@@ -75,6 +82,7 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
 
     private void configuraTabelaVendas() {
         ArrayList<Venda> vendas = getVendas();
+        long i = 0;
 
         DefaultTableModel model = new DefaultTableModel() {
 
@@ -92,12 +100,14 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
         for (Venda venda : vendas) {
             Object[] objects = {
                     venda.getId(),
-                    getNomeCliente(venda.getClienteID()),
+                    Objects.requireNonNull(getCliente(venda.getClienteID())).getNome(),
                     venda.gettipoPagamento(),
-                    getModeloCarro(venda.getCarroID()),
-                    getVendedor(venda.getFuncionarioID())};
+                    Objects.requireNonNull(getCarro(venda.getCarroID())).getModelo(),
+                    Objects.requireNonNull(getVendedor(venda.getFuncionarioID())).getNome()};
 
             model.addRow(objects);
+
+            TOTAL += Objects.requireNonNull(getCarro(venda.getCarroID())).getPreco();
         }
 
         tabelaVendas.setModel(model);
@@ -109,10 +119,17 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
                 int col = tabelaVendas.columnAtPoint(evt.getPoint());
                 if (row >= 0 && col >= 0) {
 
-                    JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_NAO_IMPLEMENTADO);
+                    JOptionPane.showMessageDialog(frame, Objects.requireNonNull(getCliente(vendas.get(tabelaVendas.getSelectedRow()).getClienteID())).toMap().toString()
+                            .replace(",", "\n")
+                            .replace("{", "")
+                            .replace("}", "")
+                            .replace("=", ": ")
+                            .toUpperCase());
                 }
             }
         });
+
+        lucroTotal.setText(String.valueOf(TOTAL));
     }
 
     private void configuraTabelaEstoque() {
@@ -135,6 +152,10 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
             if (!carro.isVendido()) {
                 Object[] objects = {carro.getId(), carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPreco() * 1000};
                 model.addRow(objects);
+
+                ESTOQUE++;
+            } else {
+                VENDIDOS++;
             }
         }
 
@@ -147,45 +168,53 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
                 int col = tabelaEstoque.columnAtPoint(evt.getPoint());
                 if (row >= 0 && col >= 0) {
 
-                    JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_NAO_IMPLEMENTADO);
+                    JOptionPane.showMessageDialog(frame, Objects.requireNonNull(getCarro(carros.get(tabelaEstoque.getSelectedRow()).getId())).toMap().toString()
+                            .replace(",", "\n")
+                            .replace("{", "")
+                            .replace("}", "")
+                            .replace("=", ": ")
+                            .toUpperCase());
                 }
             }
         });
+
+        carrosEstoque.setText(String.valueOf(ESTOQUE));
+        carrosVendidos.setText(String.valueOf(VENDIDOS));
     }
 
-    private String getNomeCliente(long id) {
+    private Cliente getCliente(long id) {
 
         ArrayList<Cliente> clientes = getClientes();
 
         for (Cliente cliente : clientes) {
             if (cliente.getId() == id) {
-                return cliente.getNome();
+                return cliente;
             }
         }
 
         return null;
     }
 
-    private String getModeloCarro(long id) {
+    private Carro getCarro(long id) {
 
         ArrayList<Carro> carros = getCarros();
 
         for (Carro carro : carros) {
             if (carro.getId() == id) {
-                return carro.getModelo() + " (" + carro.getMarca() + ")";
+                return carro;//.getModelo() + " (" + carro.getMarca() + ")";
             }
         }
 
         return null;
     }
 
-    private String getVendedor(long id) {
+    private Funcionario getVendedor(long id) {
 
         ArrayList<Funcionario> funcionarios = getFuncionarios();
 
         for (Funcionario funcionario : funcionarios) {
             if (funcionario.getId() == id) {
-                return funcionario.getNome();
+                return funcionario;
             }
         }
 

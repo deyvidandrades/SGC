@@ -6,43 +6,34 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Funcionario {
+public class Funcionario extends Pessoa {
 
-    private String nome;
     private boolean acesso;
     private String senha;
     private String cargo;
     private String login;
-    private long id;
 
 
     public Funcionario() {
+        super();
     }
 
     public Funcionario(JSONObject funcionario) {
-        this.nome = funcionario.getString("nome");
+        super(funcionario.getString("nome"), funcionario.getLong("id"));
+
         this.acesso = funcionario.getBoolean("acesso");
         this.senha = funcionario.getString("senha");
         this.cargo = funcionario.getString("cargo");
-        this.id = funcionario.getLong("id");
         this.login = funcionario.getString("login");
     }
 
     public Funcionario(String nome, String senha, String cargo, String login, boolean acesso) {
+        super(nome, new Date().getTime());
 
-        Date date = new Date();
-        long time = date.getTime();
-
-        this.nome = nome;
         this.acesso = acesso;
         this.senha = senha;
         this.cargo = cargo;
         this.login = login;
-        this.id = time;
-    }
-
-    public String getNome() {
-        return nome;
     }
 
     public Boolean getAcesso() {
@@ -61,19 +52,15 @@ public class Funcionario {
         return login;
     }
 
-    public long getId() {
-        return id;
-    }
-
     public Map toMap() {
         Map<String, Object> map = new HashMap<String, Object>();
 
-        map.put("nome", nome);
+        map.put("nome", getNome());
         map.put("acesso", acesso);
         map.put("senha", senha);
         map.put("cargo", cargo);
         map.put("login", login);
-        map.put("id", id);
+        map.put("id", getId());
 
         return map;
     }
