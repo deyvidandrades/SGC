@@ -1,5 +1,3 @@
-
-
 # SGC - Sistema Gerenciador de Concessionária
 #### [Projeto prático](https://github.com/deyvidandrades/SGC) desenvoldido na disciplina de Paradigmas de Linguagens de Programação.
 
@@ -21,6 +19,11 @@ O que você precisa instalar para rodar o software:
 ## Baixe ou clone o repositório
 ```
 > git clone https://github.com/deyvidandrades/SGC.git
+```
+## Execute o sistema
+Você pode executar o sistema rodando o arquivo **DAL.jar** localizado no diretório raiz do projeto.
+```
+java -jar DAL.jar
 ```
 
 ## Configurando a IDE Intellij Idea
@@ -56,6 +59,12 @@ Agora você pode rodar o programa diretamente do Intellij Idea.
 
 
 ## Como usar o SGC
+
+### Executar o SGC
+Se você optar por não abrir o projeto na *Intellij Idea*  e configurar manualmente seu ambiente de execução, você pode simplesmente rodar o executável java localizado no diretório raiz do projeto.
+```
+java -jar DAL.jar
+```
 
 ### Login
 Entre com o login e a senha padrão e crie seu usuário e dê as devidas permissões.
