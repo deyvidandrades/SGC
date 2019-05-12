@@ -1,3 +1,4 @@
+
 # SGC - Sistema Gerenciador de Concessionária
 #### [Projeto prático](https://github.com/deyvidandrades/SGC) desenvoldido na disciplina de Paradigmas de Linguagens de Programação.
 
@@ -7,69 +8,62 @@ A proposta inicial é de apresentar um sistema de gestão para concessionárias,
 
 Essas instruções farão com que você tenha uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste. Veja a implantação de notas sobre como implantar o projeto em um sistema ativo.
 
-## Prérequisitos
+**Importante:** Toda a GUI do projeto foi desenvolvida com o *Intellij Idea GUI Designer*, limitando o uso de form designers de outras ide's.
 
-O que você precisa instalar para rodar o software:
+## Pré-requisitos
+
+O que você precisa instalar para desenvolver e rodar o projeto:
 * [Java Jdk](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) - Ambiente de desenvolvimento Java
 * [Intellij Idea](https://www.jetbrains.com/idea/download/) - IDE usada no projeto
 
+
+
+
 ## Baixe ou clone o repositório
 ```
-> git clone https://github.com/deyvidandrades/SGC.git
+$ git clone https://github.com/deyvidandrades/SGC.git
 ```
-## Execute o sistema
-Você pode executar o sistema rodando o arquivo **DAL.jar** localizado no diretório raiz do projeto.
+Executando o sistema:
 ```
-java -jar DAL.jar
+$ java -jar DAL.jar
 ```
 
-## Configurando a IDE Intellij Idea
+## Configurações para a Intellij Idea
 
-Passo a passo que informam como configurar o ambiente de desenvolvimento para execução.
-
-Importe as bibliotecas utilizadas no projeto, localizadas em: (**src/bibliotecas**)
-
+Importe as bibliotecas utilizadas no projeto, localizadas em: (**src/bibliotecas**):
 ```
 file > Project Estructure > Libraries > + > Java > (biblioteca) > OK
 ```
 
-## Configurando os artefatos
-Configure os artefatos e marque a opção **include in project build**
-
+Configure os artefatos e marque a opção `include in project build`:
 ```
 file > Project Estructure > Artifacts > + > JAR > from modules with dependencies
 ```
-## Construindo o projeto
-Construa o projeto (**ctrl+f9**) e crie uma configuração de executável **Jar Application**:
+Construa o projeto (**ctrl+f9**) e crie uma configuração de executável `Jar Application`:
 ```
-> Run > Edit Configurations > + > Jar Application
+run > Edit Configurations > + > Jar Application
 ```
 Selecione o caminho onde foi criado o .jar: (**/output/artifacts/dal_jar/DAL.jar**)
 
-## Executando  SGC
 Adicione o artefato à nova configuração:
 ```
-> Before Launch > + > Build Artifacts > DAL.jar
+Before Launch > + > Build Artifacts > DAL.jar
 ```
-
 Agora você pode rodar o programa diretamente do Intellij Idea.
-
 
 ## Como usar o SGC
 
-### Executar o SGC
+### Executando o SGC
 Se você optar por não abrir o projeto na *Intellij Idea*  e configurar manualmente seu ambiente de execução, você pode simplesmente rodar o executável java localizado no diretório raiz do projeto.
 ```
-java -jar DAL.jar
+$ java -jar DAL.jar
 ```
 
-### Login
 Entre com o login e a senha padrão e crie seu usuário e dê as devidas permissões.
-
 ```
 admin admin
 ```
-Simule a venda de carros, controle de estoque e financeiro
+Simule a venda de carros, controle de estoque e financeiro.
 
 ## Ferramentas e Bibliotecas
 
@@ -79,9 +73,37 @@ Simule a venda de carros, controle de estoque e financeiro
 * [JSON](https://github.com/deyvidandrades/SGC/tree/master2/src/bibliotecas/json-20180813.jar) - Json-java 20180813
 * [ObjectMapper](https://github.com/deyvidandrades/SGC/tree/master2/src/bibliotecas/jackson-all-1.9.0.jar) - Jackson
 
-## Versão
+## Changelog
+-   1.0.0
+	- Persistência
+	- Login (vendedor/gerente)
+	- Classes primárias
+	- Esboço da interface
 
-2.0.1
+-   1.0.1
+	- Bug fixes 
+	- Persistência
+	
+-  1.1.0
+	- Criar funcionários
+	- Criar vendas
+	- Dashboard Gerentes
+	- Dashboard Vendedor
+ 
+-   1.2.1
+    - Criar usuário
+	- Banco de vendas
+	- Banco de carros
+	- Banco de funcionários
+	- Cadastro de funcionário
+
+## Todo
+- Refinar as interfaces de usuário
+- Tela de informações de venda
+- Tela de informações de veículos
+- *interface* de busca para as tabelas
+- função `removerFuncionário()`
+- Compra de veículos para a concessionária
 
 ## Autores
 
