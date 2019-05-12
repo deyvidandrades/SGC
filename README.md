@@ -13,9 +13,6 @@ O que você precisa instalar para rodar o software:
 * [Java Jdk](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) - Ambiente de desenvolvimento Java
 * [Intellij Idea](https://www.jetbrains.com/idea/download/) - IDE usada no projeto
 
-
-
-
 ## Baixe ou clone o repositório
 ```
 > git clone https://github.com/deyvidandrades/SGC.git

@@ -22,6 +22,7 @@ public abstract class Strings {
     //RECURSOS GRAFICOS//
     public static String ICONE = "src/main/res/imagens/dal.png";
 
+
     //BASE DE DADOS//
     public static String DADOS_CARROS = "carros";
     public static String DADOS_VENDAS = "vendas";
