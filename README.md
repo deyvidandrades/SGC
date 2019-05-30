@@ -13,7 +13,7 @@ Essas instruções farão com que você tenha uma cópia do projeto em execuçã
 ## Pré-requisitos
 
 O que você precisa instalar para desenvolver e rodar o projeto:
-* [Java Jdk](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) - Ambiente de desenvolvimento Java
+* [Java Jdk 11.0.3+](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) - Ambiente de desenvolvimento Java
 * [Intellij Idea](https://www.jetbrains.com/idea/download/) - IDE usada no projeto
 
 
@@ -67,7 +67,7 @@ Simule a venda de carros, controle de estoque e financeiro.
 
 ## Ferramentas e Bibliotecas
 
-* [Java Jdk](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) - Ambiente de desenvolvimento Java
+* [Java Jdk 11.0.3+](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) - Ambiente de desenvolvimento Java
 * [Intellij Idea](https://www.jetbrains.com/idea/download/) - IDE usada no projeto
 * [Commons-io](https://github.com/deyvidandrades/SGC/tree/master2/src/bibliotecas/commons-io-2.6.jar) - Commons-io 2.6
 * [JSON](https://github.com/deyvidandrades/SGC/tree/master2/src/bibliotecas/json-20180813.jar) - Json-java 20180813
