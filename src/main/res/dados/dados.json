@@ -41,6 +41,13 @@
       "funcionarioID": 1555009078179,
       "id": 1560454216231,
       "tipoPagamento": "Credito"
+    },
+    {
+      "clienteID": 1560542209514,
+      "carroID": 1557434633338,
+      "funcionarioID": 1555009078179,
+      "id": 1560542209514,
+      "tipoPagamento": "Financiamento"
     }
   ],
   "funcionarios": [
@@ -111,6 +118,12 @@
       "documento": "k",
       "nome": "k",
       "id": 1560454216231
+    },
+    {
+      "idade": 25,
+      "documento": "22222",
+      "nome": "Luiz",
+      "id": 1560542209514
     }
   ],
   "carros": [
@@ -190,21 +203,6 @@
       "quilometragem": 0
     },
     {
-      "cambio": "manual",
-      "ano": 2015,
-      "combustivel": "flex",
-      "cor": "preto",
-      "torque": 1.6,
-      "modelo": "Saveiro",
-      "preco": 36,
-      "opcionais": "ar condicionado, vidros elétricos, travas elétricas, Airbag ",
-      "marca": "Volkswagen",
-      "numPortas": "2",
-      "vendido": false,
-      "id": 1557434633338,
-      "quilometragem": 60
-    },
-    {
       "cambio": "automático",
       "combustivel": "diesel",
       "ano": 2019,
@@ -263,6 +261,21 @@
       "vendido": true,
       "id": 1557434622458,
       "quilometragem": 0
+    },
+    {
+      "cambio": "manual",
+      "combustivel": "flex",
+      "ano": 2015,
+      "cor": "preto",
+      "torque": 1.6,
+      "modelo": "Saveiro",
+      "opcionais": "ar condicionado, vidros elétricos, travas elétricas, Airbag ",
+      "preco": 36,
+      "marca": "Volkswagen",
+      "numPortas": 2,
+      "vendido": true,
+      "id": 1557434633338,
+      "quilometragem": 60
     }
   ]
 }
