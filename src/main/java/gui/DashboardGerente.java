@@ -18,11 +18,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Objects;
 
 public class DashboardGerente implements FrameInterface, PersistirDados {
@@ -43,7 +39,6 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
     private JLabel lucroTotal;
     private JLabel carrosEstoque;
     private JLabel carrosVendidos;
-    private JLabel vendasDoDia;
 
     public DashboardGerente() {
         super();
@@ -83,7 +78,6 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
 
         configuraTabelaVendas();
         configuraTabelaEstoque();
-        vendasDia();
     }
 
     private void configuraTabelaVendas() {
@@ -98,7 +92,7 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
             }
 
         };
-        TOTAL = 0.0;
+
         for (Object name : Referencias.COLUNAS_VENDAS) {
             model.addColumn(name);
         }
@@ -225,31 +219,6 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
         }
 
         return null;
-    }
-
-    private void vendasDia() {
-        ArrayList<Venda> vendas = getVendas();
-        ArrayList<Carro> carro = getCarros();
-        double somaVendas = 0.0;
-        for (Venda item : vendas) {
-
-            for (Carro itemCarro : carro) {
-                if (item.getCarroID() == itemCarro.getId()) {
-                    DateFormat df = new SimpleDateFormat("dd:MM:yyyy");
-                    Calendar cal = Calendar.getInstance();
-                    cal.setTimeInMillis(item.getId());
-                    String[] data = df.format(cal.getTime()).split(":");
-                    Date now = new Date();
-                    Date copiedDate = new Date(now.getTime());
-                    String[] dataDia = df.format(copiedDate).split(":");
-
-                    if (data[2].equals(dataDia[2]) && data[1].equals(dataDia[1]) && data[0].equals(dataDia[0])) {
-                        somaVendas = somaVendas + itemCarro.getPreco();
-                    }
-                }
-            }
-        }
-        vendasDoDia.setText(String.valueOf(somaVendas * 1000));
     }
 
     @Override

@@ -93,7 +93,7 @@
                   <text value="Hoje"/>
                 </properties>
               </component>
-              <component id="25277" class="javax.swing.JLabel" binding="vendasDoDia">
+              <component id="25277" class="javax.swing.JLabel">
                 <constraints>
                   <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
