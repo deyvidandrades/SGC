@@ -23,7 +23,7 @@ O que você precisa instalar para desenvolver e rodar o projeto:
 ```
 $ git clone https://github.com/deyvidandrades/SGC.git
 ```
-Executando o sistema:
+## Rodando o SGC:
 ```
 $ java -jar DAL.jar
 ```
