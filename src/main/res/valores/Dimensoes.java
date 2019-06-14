@@ -7,6 +7,7 @@ public abstract class Dimensoes {
     //INTERFACES GRAFICAS//
     public static Dimension TELA = Toolkit.getDefaultToolkit().getScreenSize();
     public static Dimension DASH = new Dimension(900, 600);
+    public static Dimension COMPRA = new Dimension(900, 400);
     public static Dimension LOGIN = new Dimension(350, 620);
 
     public static Point getCentroTela(int x, int y) {

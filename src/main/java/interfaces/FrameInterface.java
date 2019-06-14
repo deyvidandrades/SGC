@@ -1,5 +1,6 @@
 package main.java.interfaces;
 
+import main.java.assistentes.IniciarGUI;
 import main.res.valores.Dimensoes;
 import main.res.valores.Strings;
 
@@ -17,6 +18,9 @@ public interface FrameInterface {
     void hide();
 
     default void persistir() {
+    }
 
+    default void voltar(short id) {
+        IniciarGUI.show(id);
     }
 }

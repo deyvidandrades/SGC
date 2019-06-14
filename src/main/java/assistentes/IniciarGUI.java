@@ -1,9 +1,6 @@
 package main.java.assistentes;
 
-import main.java.gui.CadastroFuncionarios;
-import main.java.gui.DashboardGerente;
-import main.java.gui.DashboardVendedor;
-import main.java.gui.Login;
+import main.java.gui.*;
 import main.res.valores.Referencias;
 
 import javax.swing.*;
@@ -29,6 +26,10 @@ public abstract class IniciarGUI {
             case Referencias.CADASTRAR_FUNCIONARIO:
                 CadastroFuncionarios cadastroFuncionarios = new CadastroFuncionarios();
                 cadastroFuncionarios.show();
+                break;
+            case Referencias.COMPRAR_CARRO:
+                ComprarCarro comprarCarro = new ComprarCarro();
+                comprarCarro.show();
                 break;
 
             default:

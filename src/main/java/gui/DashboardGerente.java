@@ -45,6 +45,7 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
 
         assert false;
         img.setIcon(icone);
+        lucroTotal.setText("");
 
         ola.setText(String.format("Olá %s!", Referencias.FUNCIONARIO.getNome()));
 
@@ -62,8 +63,7 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
             comprarVeiculoButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
-
-                    JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_NAO_IMPLEMENTADO);
+                    IniciarGUI.show(Referencias.COMPRAR_CARRO);
                 }
             });
         }

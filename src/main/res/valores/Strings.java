@@ -3,7 +3,7 @@ package main.res.valores;
 public abstract class Strings {
     //STRINGS DO PROGRAMA//
     public static String DAL = "SGC";
-    public static String VERSAO = "1.2.1";
+    public static String VERSAO = "1.2.5";
     public static String DESCRICAO = "SGC - Sistema de Gestão de Concessionária";
     public static String DAL_COMPLETO = "SGC - Sistema de Gestão de Concessionária";
 
@@ -18,7 +18,6 @@ public abstract class Strings {
     public static String MENSAGEM_NAO_IMPLEMENTADO = "Funcionalidade não implementada";
     public static String MENSAGEM_NOVO_FUNCIONARIO = "Funcionario adicionado com sucesso";
     public static String MENSAGEM_COMPRA_REALIZADA = "Compra realizada.";
-
 
     //RECURSOS GRAFICOS//
     public static String ICONE = "src/main/res/imagens/dal.png";

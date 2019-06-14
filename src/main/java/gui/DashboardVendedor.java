@@ -56,6 +56,7 @@ public class DashboardVendedor implements FrameInterface, PersistirDados {
 
         ola.setText("Vendedor: " + Referencias.FUNCIONARIO.getNome());
 
+
         slider1.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent changeEvent) {
@@ -190,6 +191,8 @@ public class DashboardVendedor implements FrameInterface, PersistirDados {
 
     private void configuraComboBox() {
 
+        pagamento = Referencias.COLUNAS_FORMAS_PAGAMENTO[0].toString();
+
         DefaultComboBoxModel<Object> comboBoxModel = new DefaultComboBoxModel<>(Referencias.COLUNAS_FORMAS_PAGAMENTO);
 
         comboBoxModel.addListDataListener(new ListDataListener() {
@@ -226,10 +229,11 @@ public class DashboardVendedor implements FrameInterface, PersistirDados {
                 }
             }
         });
+
     }
 
     private void confirmarCompra() {
-        if (carroID != 0 && funcionarioID != 0 && !pagamento.equals("")) {
+        if (carroID != 0 && funcionarioID != 0 && !textDocumento.getText().equals("")) {
 
             Cliente cliente = new Cliente(textNome.getText(), textDocumento.getText(), Integer.parseInt(idade.getText().replace(" anos", "").replace("+", "")));
             Venda venda = new Venda(pagamento, carroID, cliente.getId(), funcionarioID);
