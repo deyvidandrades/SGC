@@ -18,6 +18,9 @@ public abstract class Strings {
     public static String MENSAGEM_NAO_IMPLEMENTADO = "Funcionalidade não implementada";
     public static String MENSAGEM_NOVO_FUNCIONARIO = "Funcionario adicionado com sucesso";
     public static String MENSAGEM_COMPRA_REALIZADA = "Compra realizada.";
+    public static String MENSAGEM_CARRO_NAO_SELECIONADO = "Selecione o carro!";
+    public static String MENSAGEM_NOME_VAZIO = "Insira o nome!";
+    public static String MENSAGEM_DOCUMENTO_VAZIO = "Insira o documento!";
 
     //RECURSOS GRAFICOS//
     public static String ICONE = "src/main/res/imagens/dal.png";
