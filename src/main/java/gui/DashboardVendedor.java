@@ -56,6 +56,7 @@ public class DashboardVendedor implements FrameInterface, PersistirDados {
 
         ola.setText("Vendedor: " + Referencias.FUNCIONARIO.getNome());
 
+
         slider1.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent changeEvent) {
@@ -190,6 +191,7 @@ public class DashboardVendedor implements FrameInterface, PersistirDados {
 
     private void configuraComboBox() {
 
+        pagamento = Referencias.COLUNAS_FORMAS_PAGAMENTO[0].toString();
         DefaultComboBoxModel<Object> comboBoxModel = new DefaultComboBoxModel<>(Referencias.COLUNAS_FORMAS_PAGAMENTO);
 
         comboBoxModel.addListDataListener(new ListDataListener() {
@@ -226,10 +228,11 @@ public class DashboardVendedor implements FrameInterface, PersistirDados {
                 }
             }
         });
+
     }
 
     private void confirmarCompra() {
-        if (carroID != 0 && funcionarioID != 0 && !pagamento.equals("")) {
+        if (carroID != 0 && funcionarioID != 0 && !textNome.getText().equals("") && !textDocumento.getText().equals("")) {
 
             Cliente cliente = new Cliente(textNome.getText(), textDocumento.getText(), Integer.parseInt(idade.getText().replace(" anos", "").replace("+", "")));
             Venda venda = new Venda(pagamento, carroID, cliente.getId(), funcionarioID);
@@ -262,8 +265,12 @@ public class DashboardVendedor implements FrameInterface, PersistirDados {
 
             JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_COMPRA_REALIZADA);
 
-        } else {
-            JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_LOGIN_INVALIDO);
+        } else if (carroID == 0) {
+            JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_CARRO_NAO_SELECIONADO);
+        } else if (textNome.getText().equals("")) {
+            JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_NOME_VAZIO);
+        } else if (textDocumento.getText().equals("")) {
+            JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_DOCUMENTO_VAZIO);
         }
     }
 
