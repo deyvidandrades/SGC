@@ -1,4 +1,5 @@
 
+
 # SGC - Sistema Gerenciador de Concessionária
 #### [Projeto prático](https://github.com/deyvidandrades/SGC) desenvoldido na disciplina de Paradigmas de Linguagens de Programação.
 
@@ -13,7 +14,7 @@ Essas instruções farão com que você tenha uma cópia do projeto em execuçã
 ## Pré-requisitos
 
 O que você precisa instalar para desenvolver e rodar o projeto:
-* [Java Jdk 11.0.3+](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) - Ambiente de desenvolvimento Java
+* [Java Jdk](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) - Ambiente de desenvolvimento Java
 * [Intellij Idea](https://www.jetbrains.com/idea/download/) - IDE usada no projeto
 
 
@@ -43,7 +44,7 @@ Construa o projeto (**ctrl+f9**) e crie uma configuração de executável `Jar A
 ```
 run > Edit Configurations > + > Jar Application
 ```
-Selecione o caminho onde foi criado o .jar: (**/output/artifacts/dal_jar/DAL.jar**)
+Selecione o caminho onde foi criado o .jar: (**/out/artifacts/dal_jar/DAL.jar**)
 
 Adicione o artefato à nova configuração:
 ```
@@ -96,14 +97,18 @@ Simule a venda de carros, controle de estoque e financeiro.
 	- Banco de carros
 	- Banco de funcionários
 	- Cadastro de funcionário
+- 1.2.5
+	- Tela de informações de venda
+	- Tela de informações de veículos
+	- Compra de veículos para a concessionária
 
 ## Todo
 - Refinar as interfaces de usuário
-- Tela de informações de venda
-- Tela de informações de veículos
+- ~~Tela de informações de venda~~
+- ~~Tela de informações de veículos~~
 - *interface* de busca para as tabelas
 - função `removerFuncionário()`
-- Compra de veículos para a concessionária
+- ~~Compra de veículos para a concessionária~~
 
 ## Autores
 
