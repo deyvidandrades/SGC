@@ -37,7 +37,6 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
     private JButton comprarVeiculoButton;
     private JLabel ola;
     private JButton sairButton;
-    private static double TOTAL;
     private static int ESTOQUE;
     private static int VENDIDOS;
     private JLabel lucroTotal;
@@ -98,7 +97,6 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
             }
 
         };
-        TOTAL = 0.0;
         for (Object name : Referencias.COLUNAS_VENDAS) {
             model.addColumn(name);
         }
@@ -112,8 +110,6 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
                     Objects.requireNonNull(getVendedor(venda.getFuncionarioID())).getNome()};
 
             model.addRow(objects);
-
-            TOTAL += Objects.requireNonNull(getCarro(venda.getCarroID())).getPreco();
         }
 
         tabelaVendas.setModel(model);
@@ -135,7 +131,7 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
             }
         });
 
-        lucroTotal.setText(String.valueOf(TOTAL));
+        lucroTotal.setText(String.valueOf(getValorEmCaixa()));
     }
 
     private void configuraTabelaEstoque() {
@@ -156,7 +152,7 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
 
         for (Carro carro : carros) {
             if (!carro.isVendido()) {
-                Object[] objects = {carro.getId(), carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPreco() * 1000};
+                Object[] objects = {carro.getId(), carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPreco()};
                 model.addRow(objects);
 
                 ESTOQUE++;
@@ -249,7 +245,7 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
                 }
             }
         }
-        vendasDoDia.setText(String.valueOf(somaVendas * 1000));
+        vendasDoDia.setText(String.valueOf(somaVendas));
     }
 
     @Override
