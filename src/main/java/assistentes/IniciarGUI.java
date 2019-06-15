@@ -31,6 +31,15 @@ public abstract class IniciarGUI {
                 ComprarCarro comprarCarro = new ComprarCarro();
                 comprarCarro.show();
                 break;
+            case Referencias.ACESSAR_VENDA:
+                TelaVendas telavendas = new TelaVendas();
+                telavendas.show();
+                break;
+            case Referencias.ACESSAR_INFO:
+                TelaCarros telacarros = new TelaCarros();
+                telacarros.show();
+                break;
+
 
             default:
                 break;

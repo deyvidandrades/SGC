@@ -124,13 +124,8 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
                 int row = tabelaVendas.rowAtPoint(evt.getPoint());
                 int col = tabelaVendas.columnAtPoint(evt.getPoint());
                 if (row >= 0 && col >= 0) {
-
-                    JOptionPane.showMessageDialog(frame, Objects.requireNonNull(getCliente(vendas.get(tabelaVendas.getSelectedRow()).getClienteID())).toMap().toString()
-                            .replace(",", "\n")
-                            .replace("{", "")
-                            .replace("}", "")
-                            .replace("=", ": ")
-                            .toUpperCase());
+                    Referencias.CLICKVENDAS = vendas.get(tabelaVendas.getSelectedRow());
+                    IniciarGUI.show(Referencias.ACESSAR_VENDA);
                 }
             }
         });
@@ -156,7 +151,7 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
 
         for (Carro carro : carros) {
             if (!carro.isVendido()) {
-                Object[] objects = {carro.getId(), carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPreco() * 1000};
+                Object[] objects = {carro.getId(), carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPreco()};
                 model.addRow(objects);
 
                 ESTOQUE++;
@@ -249,7 +244,7 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
                 }
             }
         }
-        vendasDoDia.setText(String.valueOf(somaVendas * 1000));
+        vendasDoDia.setText(String.valueOf(somaVendas));
     }
 
     @Override
