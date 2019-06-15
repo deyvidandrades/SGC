@@ -46,7 +46,7 @@ public class Venda {
     }
 
     public Map toMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
 
         map.put("id", id);
         map.put("tipoPagamento", tipoPagamento);

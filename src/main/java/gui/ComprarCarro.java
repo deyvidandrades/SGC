@@ -23,26 +23,33 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class ComprarCarro implements FrameInterface, PersistirDados {
-    private static double TOTAL;
-    private static int ESTOQUE;
-    private static int VENDIDOS;
+
     private JPanel panel1;
     private JTable tabelaCarros;
     private JComboBox<Object> quantidade;
     private JButton cancelarButton;
     private JButton finalizarCompraButton;
     private JLabel img;
+    private JLabel saldo;
+    private JLabel montante;
     private JLabel numCarros;
-    private String ESCOLHA = "";
+    private JLabel valorCarro;
+    private JLabel valorTotal;
+
+    private Carro CARRO;
+    private double PRECO_CARRO;
+    private double VALOR_EM_CAIXA;
+    private int ESCOLHA;
 
     public ComprarCarro() {
         super();
 
         assert false;
         img.setIcon(icone);
+        quantidade.setEnabled(false);
 
-        configuraTabelaEstoque();
-        configuraComboBox();
+        ESCOLHA = (int) Referencias.QUANTIDADE_COMPRA[0];
+        VALOR_EM_CAIXA = getValorEmCaixa();
 
         cancelarButton.addActionListener(new ActionListener() {
             @Override
@@ -50,9 +57,19 @@ public class ComprarCarro implements FrameInterface, PersistirDados {
                 voltar(Referencias.DASH_GERENTE);
             }
         });
+
+        finalizarCompraButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                finalizarCompra(CARRO, ESCOLHA);
+            }
+        });
+
+        configuraTabelaVeiculos();
+        configuraComboBox();
     }
 
-    private void configuraTabelaEstoque() {
+    private void configuraTabelaVeiculos() {
         ArrayList<Carro> carros = getCarros();
 
         DefaultTableModel model = new DefaultTableModel() {
@@ -69,14 +86,8 @@ public class ComprarCarro implements FrameInterface, PersistirDados {
         }
 
         for (Carro carro : carros) {
-            if (!carro.isVendido()) {
-                Object[] objects = {carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPreco() * 1000};
-                model.addRow(objects);
-
-                ESTOQUE++;
-            } else {
-                VENDIDOS++;
-            }
+            Object[] objects = {carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPreco()};
+            model.addRow(objects);
         }
 
         tabelaCarros.setModel(model);
@@ -87,24 +98,26 @@ public class ComprarCarro implements FrameInterface, PersistirDados {
                 int row = tabelaCarros.rowAtPoint(evt.getPoint());
                 int col = tabelaCarros.columnAtPoint(evt.getPoint());
                 if (row >= 0 && col >= 0) {
+                    CARRO = carros.get(tabelaCarros.getSelectedRow());
+                    PRECO_CARRO = CARRO.getPreco();
+                    valorCarro.setText(String.valueOf(CARRO.getPreco()));
+                    valorTotal.setText(String.valueOf(CARRO.getPreco()));
 
-                    JOptionPane.showMessageDialog(frame, Objects.requireNonNull(getCarro(carros.get(tabelaCarros.getSelectedRow()).getId())).toMap().toString()
-                            .replace(",", "\n")
-                            .replace("{", "")
-                            .replace("}", "")
-                            .replace("=", ": ")
-                            .toUpperCase());
+                    ESCOLHA = (int) Referencias.QUANTIDADE_COMPRA[0];
+                    numCarros.setText("x" + ESCOLHA);
+
+                    quantidade.setEnabled(true);
+                    quantidade.setSelectedIndex(0);
+
+                    finalizarCompraButton.setEnabled(false);
+                    atualizarGUI();
                 }
             }
         });
     }
 
-
     private void configuraComboBox() {
-
-        ESCOLHA = Referencias.COLUNAS_FORMAS_PAGAMENTO[0].toString();
-
-        DefaultComboBoxModel<Object> comboBoxModel = new DefaultComboBoxModel<>(Referencias.QUANTIDADE_COMPRA);
+        DefaultComboBoxModel<Object> comboBoxModel = new DefaultComboBoxModel<Object>(Referencias.QUANTIDADE_COMPRA);
 
         comboBoxModel.addListDataListener(new ListDataListener() {
             @Override
@@ -129,37 +142,47 @@ public class ComprarCarro implements FrameInterface, PersistirDados {
         quantidade.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent itemEvent) {
-
-                if (Objects.requireNonNull(quantidade.getSelectedItem()).toString().equals(Referencias.QUANTIDADE_COMPRA[0])) {
-                    ESCOLHA = Referencias.QUANTIDADE_COMPRA[0].toString();
-
-                } else if (Objects.requireNonNull(quantidade.getSelectedItem()).toString().equals(Referencias.QUANTIDADE_COMPRA[1])) {
-                    ESCOLHA = Referencias.QUANTIDADE_COMPRA[1].toString();
-
-                } else if (Objects.requireNonNull(quantidade.getSelectedItem()).toString().equals(Referencias.QUANTIDADE_COMPRA[1])) {
-                    ESCOLHA = Referencias.QUANTIDADE_COMPRA[2].toString();
-
+                if (Integer.parseInt(Objects.requireNonNull(quantidade.getSelectedItem()).toString()) == (int) Referencias.QUANTIDADE_COMPRA[0]) {
+                    ESCOLHA = (int) Referencias.QUANTIDADE_COMPRA[0];
+                } else if (Integer.parseInt(Objects.requireNonNull(quantidade.getSelectedItem()).toString()) == (int) Referencias.QUANTIDADE_COMPRA[1]) {
+                    ESCOLHA = (int) Referencias.QUANTIDADE_COMPRA[1];
+                } else if (Integer.parseInt(Objects.requireNonNull(quantidade.getSelectedItem()).toString()) == (int) Referencias.QUANTIDADE_COMPRA[2]) {
+                    ESCOLHA = (int) Referencias.QUANTIDADE_COMPRA[2];
                 } else {
-                    ESCOLHA = Referencias.QUANTIDADE_COMPRA[3].toString();
+                    ESCOLHA = (int) Referencias.QUANTIDADE_COMPRA[3];
                 }
 
-
-                numCarros.setText("x" + ESCOLHA);
+                valorTotal.setText(String.valueOf(PRECO_CARRO * (double) ESCOLHA));
+                atualizarGUI();
             }
         });
+
+        ESCOLHA = (int) Referencias.QUANTIDADE_COMPRA[0];
+        numCarros.setText("x" + ESCOLHA);
     }
 
-    private Carro getCarro(long id) {
+    private void atualizarGUI() {
+        numCarros.setText("x" + ESCOLHA);
+        saldo.setText(String.valueOf(VALOR_EM_CAIXA - PRECO_CARRO * (double) ESCOLHA));
+        montante.setText(String.valueOf(VALOR_EM_CAIXA));
 
-        ArrayList<Carro> carros = getCarros();
+        if (VALOR_EM_CAIXA < PRECO_CARRO * (double) ESCOLHA) {
+            saldo.setForeground(new Color(0xFF5D5F, false));
+            finalizarCompraButton.setEnabled(false);
+        } else {
+            saldo.setForeground(new Color(0x161616, false));
+            finalizarCompraButton.setEnabled(true);
+        }
+    }
 
-        for (Carro carro : carros) {
-            if (carro.getId() == id) {
-                return carro;//.getModelo() + " (" + carro.getMarca() + ")";
-            }
+    private void finalizarCompra(Carro carro, int qtd) {
+        for (int i = 0; i < qtd; i++) {
+            Carro novoCarro = new Carro(carro);
+            setDados(Strings.DADOS_CARROS, novoCarro.toMap());
         }
 
-        return null;
+        JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_COMPRA_REALIZADA);
+        voltar(Referencias.DASH_GERENTE);
     }
 
     @Override

@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class TelaVendas implements PersistirDados, FrameInterface {
+
     private JLabel compradorDoc;
     private JLabel marcaCar;
     private JLabel modCar;

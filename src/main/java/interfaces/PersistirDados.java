@@ -1,9 +1,6 @@
 package main.java.interfaces;
 
-import main.java.entidades.Carro;
-import main.java.entidades.Cliente;
-import main.java.entidades.Funcionario;
-import main.java.entidades.Venda;
+import main.java.entidades.*;
 import main.res.valores.Strings;
 import org.apache.commons.io.FileUtils;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -105,6 +102,18 @@ public interface PersistirDados {
         }
 
         return vendas;
+    }
+
+    default double getValorEmCaixa() {
+        ObjectMapper m = new ObjectMapper();
+        try {
+            Empresa empresa = m.readValue(getDados(Strings.DADOS_EMPRESA).get(0).toString(), Empresa.class);
+            return empresa.getCaixa();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return 0.0;
     }
 
     default void setDados(String key, Map objeto) {

@@ -28,7 +28,7 @@ public abstract class Referencias {
     public static Object[] LINHAS_CARRO = {"Modelo", "Marca", "Ano", "Preço", "Cor", "Portas", "Câmbio", "Quilometragem", "Torque", "Combustível", "Opicionáis"};
 
     //COMBOBOX//
-    public static Object[] QUANTIDADE_COMPRA = {"1", "2", "3", "4"};
+    public static Object[] QUANTIDADE_COMPRA = {1, 2, 3, 4};
     public static Object[] FORNECEDORES = {"Fiat", "Volkswagen"};
     public static Object[] COLUNAS_CARGOS = {"Assistente", "Gerente", "Vendedor"};
     public static Object[] COLUNAS_FORMAS_PAGAMENTO = {"Credito", "Debito", "Financiamento"};

@@ -29,6 +29,7 @@ public abstract class Strings {
     //BASE DE DADOS//
     public static String DADOS_CARROS = "carros";
     public static String DADOS_VENDAS = "vendas";
+    public static String DADOS_EMPRESA = "empresa";
     public static String DADOS_CLIENTES = "clientes";
     public static String DADOS_FUNCIONARIOS = "funcionarios";
     public static String DADOS = "src/main/res/dados/dados.json";

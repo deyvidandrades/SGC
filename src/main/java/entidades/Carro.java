@@ -27,6 +27,25 @@ public class Carro {
     public Carro() {
     }
 
+    public Carro(Carro carro) {
+        this.cor = carro.cor;
+        this.marca = carro.marca;
+        this.modelo = carro.modelo;
+        this.cambio = carro.cambio;
+        this.opcionais = carro.opcionais;
+        this.combustivel = carro.combustivel;
+        this.ano = carro.ano;
+        this.numPortas = carro.numPortas;
+        this.preco = carro.preco;
+        this.torque = carro.torque;
+        this.quilometragem = carro.quilometragem;
+        this.img = carro.img;
+
+        Date date = new Date();
+        this.id = date.getTime();
+        this.vendido = false;
+    }
+
     public Carro(String cor, String marca, String modelo, String cambio, String opcionais, String combustivel, int ano, short numPortas, double preco, double torque, double quilometragem, String img) {
         this.cor = cor;
         this.marca = marca;
