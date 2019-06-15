@@ -1,6 +1,7 @@
 package main.res.valores;
 
 import main.java.entidades.Funcionario;
+import main.java.entidades.Venda;
 
 public abstract class Referencias {
 
@@ -10,9 +11,12 @@ public abstract class Referencias {
     public static final short DASH_VENDEDOR = 2;
     public static final short CADASTRAR_FUNCIONARIO = 3;
     public static final short COMPRAR_CARRO = 4;
+    public static final short ACESSAR_VENDA = 5;
+    public static final short ACESSAR_INFO = 6;
 
     //FUNCIONARIO LOGADO//
     public static Funcionario FUNCIONARIO;
+    public static Venda CLICKVENDAS;
 
 
     //CABECALHOS DE TABELAS//

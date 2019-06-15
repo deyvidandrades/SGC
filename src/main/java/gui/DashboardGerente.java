@@ -120,13 +120,8 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
                 int row = tabelaVendas.rowAtPoint(evt.getPoint());
                 int col = tabelaVendas.columnAtPoint(evt.getPoint());
                 if (row >= 0 && col >= 0) {
-
-                    JOptionPane.showMessageDialog(frame, Objects.requireNonNull(getCliente(vendas.get(tabelaVendas.getSelectedRow()).getClienteID())).toMap().toString()
-                            .replace(",", "\n")
-                            .replace("{", "")
-                            .replace("}", "")
-                            .replace("=", ": ")
-                            .toUpperCase());
+                    Referencias.CLICKVENDAS = vendas.get(tabelaVendas.getSelectedRow());
+                    IniciarGUI.show(Referencias.ACESSAR_VENDA);
                 }
             }
         });
