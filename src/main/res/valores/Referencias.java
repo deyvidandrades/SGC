@@ -9,6 +9,7 @@ public abstract class Referencias {
     public static final short DASH_GERENTE = 1;
     public static final short DASH_VENDEDOR = 2;
     public static final short CADASTRAR_FUNCIONARIO = 3;
+    public static final short COMPRAR_CARRO = 4;
 
     //FUNCIONARIO LOGADO//
     public static Funcionario FUNCIONARIO;
@@ -18,10 +19,12 @@ public abstract class Referencias {
     public static Object[] COLUNAS_INFO = {"Propriedade", "Descrição"};
     public static Object[] COLUNAS_FUNCIONARIOS = {"Nome", "Cargo", "Privilegio"};
     public static Object[] COLUNAS_ESTOQUE = {"ID", "Marca", "Modelo", "Ano", "Preço"};
+    public static Object[] COLUNAS_COMPRAR_CARRO = {"Marca", "Modelo", "Ano", "Preço"};
     public static Object[] COLUNAS_VENDAS = {"ID", "Comprador", "Pagamento", "Veículo", "Vendedor"};
     public static Object[] LINHAS_CARRO = {"Modelo", "Marca", "Ano", "Preço", "Cor", "Portas", "Câmbio", "Quilometragem", "Torque", "Combustível", "Opicionáis"};
 
     //COMBOBOX//
+    public static Object[] QUANTIDADE_COMPRA = {"1", "2", "3", "4"};
     public static Object[] FORNECEDORES = {"Fiat", "Volkswagen"};
     public static Object[] COLUNAS_CARGOS = {"Assistente", "Gerente", "Vendedor"};
     public static Object[] COLUNAS_FORMAS_PAGAMENTO = {"Credito", "Debito", "Financiamento"};

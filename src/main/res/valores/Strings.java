@@ -3,7 +3,7 @@ package main.res.valores;
 public abstract class Strings {
     //STRINGS DO PROGRAMA//
     public static String DAL = "SGC";
-    public static String VERSAO = "1.2.1";
+    public static String VERSAO = "1.2.5";
     public static String DESCRICAO = "SGC - Sistema de Gestão de Concessionária";
     public static String DAL_COMPLETO = "SGC - Sistema de Gestão de Concessionária";
 
@@ -21,7 +21,6 @@ public abstract class Strings {
     public static String MENSAGEM_CARRO_NAO_SELECIONADO = "Selecione o carro!";
     public static String MENSAGEM_NOME_VAZIO = "Insira o nome!";
     public static String MENSAGEM_DOCUMENTO_VAZIO = "Insira o documento!";
-
 
     //RECURSOS GRAFICOS//
     public static String ICONE = "src/main/res/imagens/dal.png";

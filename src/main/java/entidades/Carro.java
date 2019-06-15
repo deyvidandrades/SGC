@@ -20,12 +20,14 @@ public class Carro {
     private double torque;
     private double quilometragem;
 
+    private String img;
+
     private boolean vendido;
 
     public Carro() {
     }
 
-    public Carro(String cor, String marca, String modelo, String cambio, String opcionais, String combustivel, int ano, short numPortas, double preco, double torque, double quilometragem) {
+    public Carro(String cor, String marca, String modelo, String cambio, String opcionais, String combustivel, int ano, short numPortas, double preco, double torque, double quilometragem, String img) {
         this.cor = cor;
         this.marca = marca;
         this.modelo = modelo;
@@ -37,6 +39,7 @@ public class Carro {
         this.preco = preco;
         this.torque = torque;
         this.quilometragem = quilometragem;
+        this.img = img;
 
         Date date = new Date();
         this.id = date.getTime();
@@ -65,6 +68,10 @@ public class Carro {
 
     public String getCombustivel() {
         return combustivel;
+    }
+
+    public String getImg() {
+        return img;
     }
 
     public long getId() {
@@ -122,6 +129,7 @@ public class Carro {
         map.put("quilometragem", quilometragem);
 
         map.put("vendido", vendido);
+        map.put("img", img);
 
         return map;
     }
