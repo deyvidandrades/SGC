@@ -16,6 +16,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -30,8 +32,8 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
     public JPanel panel1;
     private JTable tabelaVendas;
     private JTable tabelaEstoque;
-    private JTextField textField2;
-    private JTextField textField3;
+    private JTextField buscarCarro;
+    private JTextField buscaVendas;
     private JButton cadastrarFuncionarioButton;
     private JButton comprarVeiculoButton;
     private JLabel ola;
@@ -86,12 +88,46 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
             }
         });
 
-        configuraTabelaVendas();
-        configuraTabelaEstoque();
+        buscaVendas.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent keyEvent) {
+                configuraTabelaVendas(true);
+            }
+
+            @Override
+            public void keyPressed(KeyEvent keyEvent) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent keyEvent) {
+
+            }
+        });
+
+        buscarCarro.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent keyEvent) {
+                configuraTabelaEstoque(true);
+            }
+
+            @Override
+            public void keyPressed(KeyEvent keyEvent) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent keyEvent) {
+
+            }
+        });
+
+        configuraTabelaVendas(false);
+        configuraTabelaEstoque(false);
         vendasDia();
     }
 
-    private void configuraTabelaVendas() {
+    private void configuraTabelaVendas(boolean busca) {
         ArrayList<Venda> vendas = getVendas();
 
         DefaultTableModel model = new DefaultTableModel() {
@@ -106,6 +142,7 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
             model.addColumn(name);
         }
 
+        ArrayList<Venda> vendadasFiltro = new ArrayList<>();
         for (Venda venda : vendas) {
             Object[] objects = {
                     venda.getId(),
@@ -114,7 +151,15 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
                     Objects.requireNonNull(getCarro(venda.getCarroID())).getModelo(),
                     Objects.requireNonNull(getVendedor(venda.getFuncionarioID())).getNome()};
 
-            model.addRow(objects);
+            if (busca && !buscaVendas.getText().isEmpty()) {
+                if (Objects.requireNonNull(getCarro(venda.getCarroID())).getModelo().toUpperCase().contains(buscaVendas.getText().toUpperCase())) {
+                    vendadasFiltro.add(venda);
+                    model.addRow(objects);
+                }
+            } else {
+                vendadasFiltro.add(venda);
+                model.addRow(objects);
+            }
         }
 
         tabelaVendas.setModel(model);
@@ -125,7 +170,7 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
                 int row = tabelaVendas.rowAtPoint(evt.getPoint());
                 int col = tabelaVendas.columnAtPoint(evt.getPoint());
                 if (row >= 0 && col >= 0) {
-                    Referencias.CLICKVENDAS = vendas.get(tabelaVendas.getSelectedRow());
+                    Referencias.CLICKVENDAS = vendadasFiltro.get(tabelaVendas.getSelectedRow());
                     IniciarGUI.show(Referencias.ACESSAR_VENDA);
                 }
             }
@@ -134,7 +179,9 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
         lucroTotal.setText(String.valueOf(getValorEmCaixa()));
     }
 
-    private void configuraTabelaEstoque() {
+    private void configuraTabelaEstoque(boolean busca) {
+        ESTOQUE = 0;
+        VENDIDOS = 0;
         ArrayList<Carro> carros = getCarros();
 
         DefaultTableModel model = new DefaultTableModel() {
@@ -152,13 +199,27 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
 
         ArrayList<Carro> carrosNoEstoque = new ArrayList<>();
         for (Carro carro : carros) {
-            if (!carro.isVendido()) {
-                Object[] objects = {carro.getId(), carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPreco()};
-                model.addRow(objects);
-                carrosNoEstoque.add(carro);
-                ESTOQUE++;
+
+            if (busca && !buscarCarro.getText().isEmpty()) {
+                if (!carro.isVendido()) {
+                    if (carro.getModelo().toUpperCase().contains(buscarCarro.getText().toUpperCase())) {
+                        Object[] objects = {carro.getId(), carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPreco()};
+                        model.addRow(objects);
+                        carrosNoEstoque.add(carro);
+                        ESTOQUE++;
+                    }
+                } else {
+                    VENDIDOS++;
+                }
             } else {
-                VENDIDOS++;
+                if (!carro.isVendido()) {
+                    Object[] objects = {carro.getId(), carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPreco()};
+                    model.addRow(objects);
+                    carrosNoEstoque.add(carro);
+                    ESTOQUE++;
+                } else {
+                    VENDIDOS++;
+                }
             }
         }
 

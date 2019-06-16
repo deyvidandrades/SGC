@@ -230,7 +230,7 @@
                   <text value="Histórico de vendas"/>
                 </properties>
               </component>
-              <component id="b728f" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+              <component id="b728f" class="javax.swing.JTextField" binding="buscaVendas">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="200" height="-1"/>
@@ -275,7 +275,7 @@
                   <text value="Estoque de automóveis"/>
                 </properties>
               </component>
-              <component id="bfe76" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+              <component id="bfe76" class="javax.swing.JTextField" binding="buscarCarro">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="200" height="-1"/>

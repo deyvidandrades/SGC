@@ -162,7 +162,7 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
                     if (funcionario.getNome().toUpperCase().contains(busca.getText().toUpperCase())) {
                         arrayListFuncionarios.add(funcionario);
 
-                        String acesso = "";
+                        String acesso;
                         if (funcionario.getAcesso()) {
                             acesso = "Sim";
                         } else {
@@ -175,7 +175,7 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
                 } else {
                     arrayListFuncionarios.add(funcionario);
 
-                    String acesso = "";
+                    String acesso;
                     if (funcionario.getAcesso()) {
                         acesso = "Sim";
                     } else {

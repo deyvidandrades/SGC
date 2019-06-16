@@ -3,6 +3,7 @@ package main.java.gui;
 import main.java.entidades.Carro;
 import main.java.interfaces.FrameInterface;
 import main.java.interfaces.PersistirDados;
+import main.java.interfaces.UriImagem;
 import main.res.valores.Dimensoes;
 import main.res.valores.Referencias;
 import main.res.valores.Strings;
@@ -22,7 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class ComprarCarro implements FrameInterface, PersistirDados {
+public class ComprarCarro implements FrameInterface, PersistirDados, UriImagem {
 
     private JPanel panel1;
     private JTable tabelaCarros;
@@ -110,6 +111,10 @@ public class ComprarCarro implements FrameInterface, PersistirDados {
                     quantidade.setSelectedIndex(0);
 
                     finalizarCompraButton.setEnabled(false);
+
+                    ImageIcon carroIcone = new ImageIcon(new ImageIcon(getURI(CARRO.getImg())).getImage().getScaledInstance(250, 200, Image.SCALE_DEFAULT));
+                    img.setIcon(carroIcone);
+
                     atualizarGUI();
                 }
             }
