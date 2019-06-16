@@ -42,6 +42,8 @@ public class ComprarCarro implements FrameInterface, PersistirDados, UriImagem {
     private double VALOR_EM_CAIXA;
     private int ESCOLHA;
 
+    private ArrayList<Carro> carrosAdicionados = new ArrayList<>();
+
     public ComprarCarro() {
         super();
 
@@ -87,8 +89,19 @@ public class ComprarCarro implements FrameInterface, PersistirDados, UriImagem {
         }
 
         for (Carro carro : carros) {
-            Object[] objects = {carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPreco()};
-            model.addRow(objects);
+
+            boolean verificaRepetido = false;
+            for (Carro c : carrosAdicionados) {
+                if (c.getModelo().equals(carro.getModelo())) {
+                    verificaRepetido = true;
+                }
+            }
+
+            if (!verificaRepetido) {
+                Object[] objects = {carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPreco()};
+                model.addRow(objects);
+                carrosAdicionados.add(carro);
+            }
         }
 
         tabelaCarros.setModel(model);
