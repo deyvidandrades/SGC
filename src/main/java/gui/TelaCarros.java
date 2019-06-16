@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class TelaCarros implements PersistirDados, FrameInterface {
+
     private JPanel panel1;
     private JList carList;
     private JLabel carImg;
@@ -24,11 +25,12 @@ public class TelaCarros implements PersistirDados, FrameInterface {
 
     public TelaCarros() {
         Venda vendax = Referencias.CLICKVENDAS;
+
         ArrayList<Carro> carro = getCarros();
-        DefaultListModel modelo = new DefaultListModel();
+        DefaultListModel<Object> modelo = new DefaultListModel<>();
+
         for (Carro C : carro) {
             if (C.getId() == vendax.getCarroID()) {
-
                 modelo.addElement("Marca: " + C.getMarca());
                 modelo.addElement("Modelo: " + C.getModelo());
                 modelo.addElement("Ano: " + C.getAno());
@@ -40,11 +42,12 @@ public class TelaCarros implements PersistirDados, FrameInterface {
                 modelo.addElement("Torque: " + C.getTorque());
                 modelo.addElement("Valor: " + C.getPreco());
                 modelo.addElement("ID: " + C.getId());
-
             }
         }
+
         carList.setModel(modelo);
         carImg.setIcon(icone);
+
         sair.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {

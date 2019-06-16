@@ -165,12 +165,14 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
                 int col = tabelaEstoque.columnAtPoint(evt.getPoint());
                 if (row >= 0 && col >= 0) {
 
-                    JOptionPane.showMessageDialog(frame, Objects.requireNonNull(getCarro(carros.get(tabelaEstoque.getSelectedRow()).getId())).toMap().toString()
+                    /*JOptionPane.showMessageDialog(frame, Objects.requireNonNull(getCarro(carros.get(tabelaEstoque.getSelectedRow()).getId())).toMap().toString()
                             .replace(",", "\n")
                             .replace("{", "")
                             .replace("}", "")
                             .replace("=", ": ")
-                            .toUpperCase());
+                            .toUpperCase());*/
+
+                    IniciarGUI.show(Referencias.ACESSAR_INFO);
                 }
             }
         });
