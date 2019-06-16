@@ -20,7 +20,7 @@ public class Carro {
     private double torque;
     private double quilometragem;
 
-    private String img;
+    private int img;
 
     private boolean vendido;
 
@@ -46,7 +46,7 @@ public class Carro {
         this.vendido = false;
     }
 
-    public Carro(String cor, String marca, String modelo, String cambio, String opcionais, String combustivel, int ano, short numPortas, double preco, double torque, double quilometragem, String img) {
+    public Carro(String cor, String marca, String modelo, String cambio, String opcionais, String combustivel, int ano, short numPortas, double preco, double torque, double quilometragem, int img) {
         this.cor = cor;
         this.marca = marca;
         this.modelo = modelo;
@@ -89,7 +89,7 @@ public class Carro {
         return combustivel;
     }
 
-    public String getImg() {
+    public int getImg() {
         return img;
     }
 

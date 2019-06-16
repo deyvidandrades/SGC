@@ -26,6 +26,16 @@ public abstract class Strings {
 
     //RECURSOS GRAFICOS//
     public static String ICONE = "src/main/res/imagens/dal.png";
+    public static String IMG_1 = "src/main/res/imagens/carros/palop2014.png";
+    public static String IMG_2 = "src/main/res/imagens/carros/toro2017.png";
+    public static String IMG_3 = "src/main/res/imagens/carros/polo2019.png";
+    public static String IMG_4 = "src/main/res/imagens/carros/amarok2019.png";
+    public static String IMG_5 = "src/main/res/imagens/carros/gol2015.png";
+    public static String IMG_6 = "src/main/res/imagens/carros/mobi2019.png";
+    public static String IMG_7 = "src/main/res/imagens/carros/fox2019.png";
+    public static String IMG_8 = "src/main/res/imagens/carros/cronos2019.png";
+    public static String IMG_9 = "src/main/res/imagens/carros/punto2015.png";
+    public static String IMG_10 = "src/main/res/imagens/carros/saveiro2015.png";
 
 
     //BASE DE DADOS//

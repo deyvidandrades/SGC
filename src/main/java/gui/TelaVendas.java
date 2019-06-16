@@ -6,19 +6,21 @@ import main.java.entidades.Funcionario;
 import main.java.entidades.Venda;
 import main.java.interfaces.FrameInterface;
 import main.java.interfaces.PersistirDados;
+import main.java.interfaces.UriImagem;
 import main.res.valores.Dimensoes;
 import main.res.valores.Referencias;
 import main.res.valores.Strings;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class TelaVendas implements PersistirDados, FrameInterface {
+public class TelaVendas implements PersistirDados, FrameInterface, UriImagem {
 
     private JLabel compradorDoc;
     private JLabel marcaCar;
@@ -76,7 +78,9 @@ public class TelaVendas implements PersistirDados, FrameInterface {
                 modCar.setText(carro.getModelo() + " /");
                 anoCar.setText(carro.getAno() + " /");
                 corCar.setText(carro.getCor());
-                logo.setIcon(icone);
+
+                ImageIcon carroIcone = new ImageIcon(new ImageIcon(getURI(carro.getImg())).getImage().getScaledInstance(250, 200, Image.SCALE_DEFAULT));
+                logo.setIcon(carroIcone);
                 varValor.setText("R$:" + carro.getPreco());
             }
         }

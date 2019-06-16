@@ -9,7 +9,7 @@ public abstract class Dimensoes {
     public static Dimension DASH = new Dimension(900, 600);
     public static Dimension COMPRA = new Dimension(900, 400);
     public static Dimension LOGIN = new Dimension(350, 620);
-    public static Dimension ACESSARVENDAS = new Dimension(760, 300);
+    public static Dimension ACESSARVENDAS = new Dimension(850, 300);
     public static Dimension INFOCARROS = new Dimension(760, 300);
     public static Dimension DADOS_FUNCIONARIOS = new Dimension(600, 250);
 

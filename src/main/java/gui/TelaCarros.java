@@ -4,19 +4,21 @@ import main.java.entidades.Carro;
 import main.java.entidades.Venda;
 import main.java.interfaces.FrameInterface;
 import main.java.interfaces.PersistirDados;
+import main.java.interfaces.UriImagem;
 import main.res.valores.Dimensoes;
 import main.res.valores.Referencias;
 import main.res.valores.Strings;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class TelaCarros implements PersistirDados, FrameInterface {
+public class TelaCarros implements PersistirDados, FrameInterface, UriImagem {
 
     private JPanel panel1;
     private JList<Object> carList;
@@ -70,6 +72,9 @@ public class TelaCarros implements PersistirDados, FrameInterface {
         modelo.addElement("Torque: " + C.getTorque());
         modelo.addElement("Valor: " + C.getPreco());
         modelo.addElement("ID: " + C.getId());
+
+        ImageIcon carroIcone = new ImageIcon(new ImageIcon(getURI(C.getImg())).getImage().getScaledInstance(250, 200, Image.SCALE_DEFAULT));
+        carImg.setIcon(carroIcone);
 
         carList.setModel(modelo);
     }
