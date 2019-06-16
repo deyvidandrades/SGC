@@ -45,6 +45,10 @@ public abstract class IniciarGUI {
                 DadosFuncionarios dadosFuncionarios = new DadosFuncionarios(Referencias.FUNCIONARIO_TABELA);
                 dadosFuncionarios.show();
                 break;
+            case Referencias.ACESSAR_CARRO_VENDEDOR:
+                TelaCarros carroVendedor = new TelaCarros(Referencias.CARRO, 1);
+                carroVendedor.show();
+                break;
 
             default:
                 break;

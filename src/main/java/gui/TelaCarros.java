@@ -24,16 +24,22 @@ public class TelaCarros implements PersistirDados, FrameInterface, UriImagem {
     private JList<Object> carList;
     private JLabel carImg;
     private JButton sair;
-    private boolean SOLO;
+    private int SOLO;
 
     public TelaCarros(Carro carro) {
-        SOLO = true;
+        SOLO = 0;
+        configuraGUI();
+        configuraLista(carro);
+    }
+
+    public TelaCarros(Carro carro, int solo) {
+        SOLO = solo;
         configuraGUI();
         configuraLista(carro);
     }
 
     public TelaCarros() {
-        SOLO = false;
+        SOLO = 2;
         Venda vendax = Referencias.CLICKVENDAS;
         configuraGUI();
 
@@ -51,10 +57,19 @@ public class TelaCarros implements PersistirDados, FrameInterface, UriImagem {
         sair.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                if (SOLO)
-                    voltar(Referencias.DASH_GERENTE);
-                else
-                    voltar(Referencias.ACESSAR_VENDA);
+                switch (SOLO) {
+                    case 0:
+                        voltar(Referencias.DASH_GERENTE);
+                        break;
+                    case 1:
+                        voltar(Referencias.DASH_VENDEDOR);
+                        break;
+                    case 2:
+                        voltar(Referencias.ACESSAR_VENDA);
+                        break;
+                    default:
+                        break;
+                }
             }
         });
     }

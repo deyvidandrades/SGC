@@ -178,12 +178,8 @@ public class DashboardVendedor implements FrameInterface, PersistirDados {
                 int col = tabelaInfo.columnAtPoint(evt.getPoint());
                 if (row >= 0 && col >= 0) {
 
-                    JOptionPane.showMessageDialog(frame, carro.toMap().toString()
-                            .replace(",", "\n")
-                            .replace("{", "")
-                            .replace("}", "")
-                            .replace("=", ": ")
-                            .toUpperCase());
+                    Referencias.CARRO = carros.get(tabelaEstoque.getSelectedRow());
+                    IniciarGUI.show(Referencias.ACESSAR_CARRO_VENDEDOR);
                 }
             }
         });

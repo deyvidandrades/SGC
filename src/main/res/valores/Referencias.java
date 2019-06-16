@@ -16,6 +16,7 @@ public abstract class Referencias {
     public static final short ACESSAR_INFO = 6;
     public static final short ACESSAR_CARRO = 7;
     public static final short DADOS_FUNCIONARIOS = 8;
+    public static final short ACESSAR_CARRO_VENDEDOR = 9;
 
     //USUARIO LOGADO NAO ALTERAR//
     public static Funcionario FUNCIONARIO;
