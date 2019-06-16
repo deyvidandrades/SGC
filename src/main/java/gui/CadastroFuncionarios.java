@@ -23,9 +23,8 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class CadastroFuncionarios implements FrameInterface, PersistirDados {
-    private JTable table1;
+    private JTable tabelaFuncionarios;
     private JButton cadastrarFuncionarioButton;
-    private JButton removerUsuarioButton;
     private JPasswordField passwordField1;
     private JFormattedTextField nomeText;
     private JCheckBox privilegioCheckBox;
@@ -35,11 +34,12 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
     private JButton voltarButton;
     private JFormattedTextField loginText;
 
+    private Funcionario FUNCIONARIO;
     private boolean check = false;
 
     public CadastroFuncionarios() {
 
-        configuraTabela(getFuncionarios());
+        configuraTabela();
         configuraComboBox();
 
         privilegioCheckBox.addItemListener(new ItemListener() {
@@ -83,18 +83,11 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
                     setDados(Strings.DADOS_FUNCIONARIOS, funcionario.toMap());
                     JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_NOVO_FUNCIONARIO);
 
-                    configuraTabela(getFuncionarios());
-
+                    configuraTabela();
+                    IniciarGUI.show(Referencias.CADASTRAR_FUNCIONARIO);
                 } else {
                     JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_LOGIN_INVALIDO);
                 }
-            }
-        });
-
-        removerUsuarioButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_NAO_IMPLEMENTADO);
             }
         });
 
@@ -132,7 +125,8 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
         comboCargo.setModel(comboBoxModel);
     }
 
-    private void configuraTabela(ArrayList<Funcionario> funcionarios) {
+    private void configuraTabela() {
+        ArrayList<Funcionario> funcionarios = getFuncionarios();
 
         DefaultTableModel model = new DefaultTableModel() {
 
@@ -146,8 +140,11 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
             model.addColumn(name);
         }
 
+        ArrayList<Funcionario> arrayListFuncionarios = new ArrayList<>();
+
         for (Funcionario funcionario : funcionarios) {
             if (!funcionario.getLogin().equals("admin")) {
+                arrayListFuncionarios.add(funcionario);
 
                 String acesso = "";
                 if (funcionario.getAcesso()) {
@@ -161,18 +158,20 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
             }
         }
 
-        table1.setModel(model);
+        tabelaFuncionarios.setModel(model);
 
-        table1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabelaFuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                int row = table1.rowAtPoint(evt.getPoint());
-                int col = table1.columnAtPoint(evt.getPoint());
+                int row = tabelaFuncionarios.rowAtPoint(evt.getPoint());
+                int col = tabelaFuncionarios.columnAtPoint(evt.getPoint());
                 if (row >= 0 && col >= 0) {
-                    JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_NAO_IMPLEMENTADO);
+                    Referencias.FUNCIONARIO_TABELA = arrayListFuncionarios.get(tabelaFuncionarios.getSelectedRow());
+                    IniciarGUI.show(Referencias.DADOS_FUNCIONARIOS);
                 }
             }
         });
+
     }
 
 

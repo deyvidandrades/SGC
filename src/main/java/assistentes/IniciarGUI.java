@@ -17,12 +17,10 @@ public abstract class IniciarGUI {
                 DashboardGerente dashboardGerente = new DashboardGerente();
                 dashboardGerente.show();
                 break;
-
             case Referencias.DASH_VENDEDOR:
                 DashboardVendedor dashVendedor = new DashboardVendedor();
                 dashVendedor.show();
                 break;
-
             case Referencias.CADASTRAR_FUNCIONARIO:
                 CadastroFuncionarios cadastroFuncionarios = new CadastroFuncionarios();
                 cadastroFuncionarios.show();
@@ -42,6 +40,10 @@ public abstract class IniciarGUI {
             case Referencias.ACESSAR_CARRO:
                 TelaCarros telacarro = new TelaCarros(Referencias.CARRO);
                 telacarro.show();
+                break;
+            case Referencias.DADOS_FUNCIONARIOS:
+                DadosFuncionarios dadosFuncionarios = new DadosFuncionarios(Referencias.FUNCIONARIO_TABELA);
+                dadosFuncionarios.show();
                 break;
 
             default:

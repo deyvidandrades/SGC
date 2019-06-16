@@ -21,6 +21,8 @@ public abstract class Strings {
     public static String MENSAGEM_CARRO_NAO_SELECIONADO = "Selecione o carro!";
     public static String MENSAGEM_NOME_VAZIO = "Insira o nome!";
     public static String MENSAGEM_DOCUMENTO_VAZIO = "Insira o documento!";
+    public static String MENSAGEM_FUNCIONARIO_ATUALIZADO = "Funcionário atualizado.";
+    public static String MENSAGEM_FUNCIONARIO_DELETADO = "Funcionário deletado.";
 
     //RECURSOS GRAFICOS//
     public static String ICONE = "src/main/res/imagens/dal.png";

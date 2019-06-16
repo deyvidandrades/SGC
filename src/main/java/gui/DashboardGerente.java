@@ -34,8 +34,6 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
     private JTextField textField3;
     private JButton cadastrarFuncionarioButton;
     private JButton comprarVeiculoButton;
-    private static int ESTOQUE;
-    private static int VENDIDOS;
     private JLabel ola;
     private JLabel lucroTotal;
     private JButton sairButton;
@@ -44,12 +42,20 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
     private JLabel img;
     private JLabel vendasDoDia;
 
+
+    private static int ESTOQUE;
+    private static int VENDIDOS;
+
     public DashboardGerente() {
         super();
 
         assert false;
         img.setIcon(icone);
         lucroTotal.setText("");
+        carrosVendidos.setText("");
+        carrosEstoque.setText("");
+        ESTOQUE = 0;
+        VENDIDOS = 0;
 
         ola.setText(String.format("Olá %s!", Referencias.FUNCIONARIO.getNome()));
 

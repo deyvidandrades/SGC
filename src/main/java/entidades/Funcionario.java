@@ -27,6 +27,15 @@ public class Funcionario extends Pessoa {
         this.login = funcionario.getString("login");
     }
 
+    public Funcionario(String nome, String senha, String cargo, String login, boolean acesso, long id) {
+        super(nome, id);
+
+        this.acesso = acesso;
+        this.senha = senha;
+        this.cargo = cargo;
+        this.login = login;
+    }
+
     public Funcionario(String nome, String senha, String cargo, String login, boolean acesso) {
         super(nome, new Date().getTime());
 

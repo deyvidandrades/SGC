@@ -100,171 +100,171 @@
       "id": 1559083772352
     }
   ],
+  "empresa": [
+    {
+      "caixa": 300400
+    }
+  ],
   "carros": [
     {
       "cambio": "manual",
+      "img": "",
       "ano": 2014,
       "combustivel": "flex",
       "cor": "branca",
       "torque": 1.6,
       "modelo": "Palio",
-      "preco": 36000.0,
+      "preco": 36000,
       "opcionais": "ar condicionado, vidros elétricos, travas elétricas",
       "marca": "Fiat",
       "numPortas": 4,
       "vendido": false,
       "id": 1557434488501,
-      "quilometragem": 110,
-      "img": ""
+      "quilometragem": 110
     },
     {
       "cambio": "automático",
+      "img": "",
       "ano": 2017,
       "combustivel": "diesel",
       "cor": "branca",
       "torque": 2,
       "modelo": "Toro",
-      "preco": 94999.0,
+      "preco": 94999,
       "opcionais": "ar condicionado, vidros elétricos, travas elétricas, alarme, Airbag, computador de bordo, controle de tração",
       "marca": "Fiat",
       "numPortas": 4,
       "vendido": true,
       "id": 1557434545164,
-      "quilometragem": 27,
-      "img": ""
+      "quilometragem": 27
     },
     {
       "cambio": "automático",
+      "img": "",
       "ano": 2019,
       "combustivel": "flex",
       "cor": "vermelho",
       "torque": 1,
       "modelo": "Polo",
-      "preco": 68470.0,
+      "preco": 68470,
       "opcionais": "ar condicionado, vidros elétricos, travas elétricas, Airbag, computador de bordo ",
       "marca": "Volkswagen",
       "numPortas": 4,
       "vendido": true,
       "id": 1557434622458,
-      "quilometragem": 0,
-      "img": ""
+      "quilometragem": 0
     },
     {
       "cambio": "automático",
+      "img": "",
       "combustivel": "diesel",
       "ano": 2019,
       "cor": "branca",
       "torque": 1,
       "modelo": "Amarok",
       "opcionais": "ar condicionado, vidros elétricos, travas elétricas, Airbag, computador de bordo, tração 4x4, GPS ",
-      "preco": 18999.0,
+      "preco": 18999,
       "marca": "Volkswagen",
       "numPortas": 4,
       "vendido": false,
       "id": 1557434652072,
-      "quilometragem": 0,
-      "img": ""
+      "quilometragem": 0
     },
     {
       "cambio": "manual",
+      "img": "",
       "combustivel": "flex",
       "ano": 2015,
       "cor": "prata",
       "torque": 1,
       "modelo": "Gol",
       "opcionais": "ar condicionado, vidros elétricos, travas elétricas, ",
-      "preco": 27000.0,
+      "preco": 27000,
       "marca": "Volkswagen",
       "numPortas": 4,
       "vendido": false,
       "id": 1557434640939,
-      "quilometragem": 84,
-      "img": ""
+      "quilometragem": 84
     },
     {
       "cambio": "manual",
+      "img": "",
       "combustivel": "flex",
       "ano": 2019,
       "cor": "prata",
       "torque": 1,
       "modelo": "Mobi",
       "opcionais": "ar condicionado, vidros elétricos, travas elétricas",
-      "preco": 36990.0,
+      "preco": 36990,
       "marca": "Fiat",
       "numPortas": 4,
       "vendido": true,
       "id": 1557434604982,
-      "quilometragem": 0,
-      "img": ""
+      "quilometragem": 0
     },
     {
       "cambio": "manual",
+      "img": "",
       "combustivel": "flex",
       "ano": 2019,
       "cor": "cinza",
       "torque": 1.6,
       "modelo": "Fox",
       "opcionais": "ar condicionado, vidros elétricos, travas elétricas, Airbag, computador de bordo ",
-      "preco": 52990.0,
+      "preco": 52990,
       "marca": "Volkswagen",
       "numPortas": 4,
       "vendido": true,
       "id": 1557434614144,
-      "quilometragem": 0,
-      "img": ""
+      "quilometragem": 0
     },
     {
       "cambio": "manual",
+      "img": "",
       "combustivel": "flex",
       "ano": 2019,
       "cor": "vermelho",
       "torque": 1.6,
       "modelo": "Cronos",
       "opcionais": "ar condicionado, vidros elétricos, travas elétricas, Airbag, computador de bordo, rádio",
-      "preco": 62990.0,
+      "preco": 62990,
       "marca": "Fiat",
       "numPortas": 4,
       "vendido": true,
       "id": 1557434593592,
-      "quilometragem": 0,
-      "img": ""
+      "quilometragem": 0
     },
     {
       "cambio": "manual",
+      "img": "",
       "combustivel": "flex",
       "ano": 2015,
       "cor": "branca",
       "torque": 1.8,
       "modelo": "Punto",
       "opcionais": "ar condicionado, vidros elétricos, travas elétricas, alarme, Airbag, rádio",
-      "preco": 40000.0,
+      "preco": 40000,
       "marca": "Fiat",
       "numPortas": 4,
       "vendido": false,
       "id": 1557434523369,
-      "quilometragem": 10,
-      "img": ""
+      "quilometragem": 10
     },
     {
       "cambio": "manual",
+      "img": "",
       "combustivel": "flex",
       "ano": 2015,
       "cor": "preto",
       "torque": 1.6,
       "modelo": "Saveiro",
       "opcionais": "ar condicionado, vidros elétricos, travas elétricas, Airbag ",
-      "preco": 36000.0,
+      "preco": 36000,
       "marca": "Volkswagen",
       "numPortas": 2,
       "vendido": false,
       "id": 1557434633338,
-      "quilometragem": 60,
-      "img": ""
-    }
-  ],
-  "empresa": [
-    {
-      "caixa": 300400.0
+      "quilometragem": 60
     }
   ]
 }

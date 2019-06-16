@@ -15,9 +15,13 @@ public abstract class Referencias {
     public static final short ACESSAR_VENDA = 5;
     public static final short ACESSAR_INFO = 6;
     public static final short ACESSAR_CARRO = 7;
+    public static final short DADOS_FUNCIONARIOS = 8;
+
+    //USUARIO LOGADO NAO ALTERAR//
+    public static Funcionario FUNCIONARIO;
 
     //OBJETOS REUTILIZAVEIS//
-    public static Funcionario FUNCIONARIO;
+    public static Funcionario FUNCIONARIO_TABELA;
     public static Venda CLICKVENDAS;
     public static Carro CARRO;
 
