@@ -32,16 +32,16 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
     private JTable tabelaEstoque;
     private JTextField textField2;
     private JTextField textField3;
-    private JLabel img;
     private JButton cadastrarFuncionarioButton;
     private JButton comprarVeiculoButton;
-    private JLabel ola;
-    private JButton sairButton;
     private static int ESTOQUE;
     private static int VENDIDOS;
+    private JLabel ola;
     private JLabel lucroTotal;
+    private JButton sairButton;
     private JLabel carrosEstoque;
     private JLabel carrosVendidos;
+    private JLabel img;
     private JLabel vendasDoDia;
 
     public DashboardGerente() {
@@ -87,7 +87,6 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
 
     private void configuraTabelaVendas() {
         ArrayList<Venda> vendas = getVendas();
-        long i = 0;
 
         DefaultTableModel model = new DefaultTableModel() {
 
@@ -145,11 +144,12 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
             model.addColumn(name);
         }
 
+        ArrayList<Carro> carrosNoEstoque = new ArrayList<>();
         for (Carro carro : carros) {
             if (!carro.isVendido()) {
                 Object[] objects = {carro.getId(), carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPreco()};
                 model.addRow(objects);
-
+                carrosNoEstoque.add(carro);
                 ESTOQUE++;
             } else {
                 VENDIDOS++;
@@ -164,15 +164,8 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
                 int row = tabelaEstoque.rowAtPoint(evt.getPoint());
                 int col = tabelaEstoque.columnAtPoint(evt.getPoint());
                 if (row >= 0 && col >= 0) {
-
-                    /*JOptionPane.showMessageDialog(frame, Objects.requireNonNull(getCarro(carros.get(tabelaEstoque.getSelectedRow()).getId())).toMap().toString()
-                            .replace(",", "\n")
-                            .replace("{", "")
-                            .replace("}", "")
-                            .replace("=", ": ")
-                            .toUpperCase());*/
-
-                    IniciarGUI.show(Referencias.ACESSAR_INFO);
+                    Referencias.CARRO = carrosNoEstoque.get(tabelaEstoque.getSelectedRow());
+                    IniciarGUI.show(Referencias.ACESSAR_CARRO);
                 }
             }
         });
@@ -200,7 +193,7 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
 
         for (Carro carro : carros) {
             if (carro.getId() == id) {
-                return carro;//.getModelo() + " (" + carro.getMarca() + ")";
+                return carro;
             }
         }
 

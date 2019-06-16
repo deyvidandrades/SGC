@@ -39,7 +39,10 @@ public abstract class IniciarGUI {
                 TelaCarros telacarros = new TelaCarros();
                 telacarros.show();
                 break;
-
+            case Referencias.ACESSAR_CARRO:
+                TelaCarros telacarro = new TelaCarros(Referencias.CARRO);
+                telacarro.show();
+                break;
 
             default:
                 break;

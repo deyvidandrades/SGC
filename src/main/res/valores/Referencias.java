@@ -1,5 +1,6 @@
 package main.res.valores;
 
+import main.java.entidades.Carro;
 import main.java.entidades.Funcionario;
 import main.java.entidades.Venda;
 
@@ -13,10 +14,12 @@ public abstract class Referencias {
     public static final short COMPRAR_CARRO = 4;
     public static final short ACESSAR_VENDA = 5;
     public static final short ACESSAR_INFO = 6;
+    public static final short ACESSAR_CARRO = 7;
 
-    //FUNCIONARIO LOGADO//
+    //OBJETOS REUTILIZAVEIS//
     public static Funcionario FUNCIONARIO;
     public static Venda CLICKVENDAS;
+    public static Carro CARRO;
 
 
     //CABECALHOS DE TABELAS//

@@ -19,41 +19,59 @@ import java.util.ArrayList;
 public class TelaCarros implements PersistirDados, FrameInterface {
 
     private JPanel panel1;
-    private JList carList;
+    private JList<Object> carList;
     private JLabel carImg;
     private JButton sair;
+    private boolean SOLO;
+
+    public TelaCarros(Carro carro) {
+        SOLO = true;
+        configuraGUI();
+        configuraLista(carro);
+    }
 
     public TelaCarros() {
+        SOLO = false;
         Venda vendax = Referencias.CLICKVENDAS;
+        configuraGUI();
 
         ArrayList<Carro> carro = getCarros();
-        DefaultListModel<Object> modelo = new DefaultListModel<>();
-
         for (Carro C : carro) {
-            if (C.getId() == vendax.getCarroID()) {
-                modelo.addElement("Marca: " + C.getMarca());
-                modelo.addElement("Modelo: " + C.getModelo());
-                modelo.addElement("Ano: " + C.getAno());
-                modelo.addElement("Cor: " + C.getCor());
-                modelo.addElement("Câmbio: " + C.getCambio());
-                modelo.addElement("Combustível: " + C.getCombustivel());
-                modelo.addElement("Num Portas: " + C.getNumPortas());
-                modelo.addElement("Km: " + C.getQuilometragem());
-                modelo.addElement("Torque: " + C.getTorque());
-                modelo.addElement("Valor: " + C.getPreco());
-                modelo.addElement("ID: " + C.getId());
+            if (vendax.getCarroID() == C.getId()) {
+                configuraLista(C);
             }
         }
+    }
 
-        carList.setModel(modelo);
+    private void configuraGUI() {
         carImg.setIcon(icone);
 
         sair.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                voltar(Referencias.ACESSAR_VENDA);
+                if (SOLO)
+                    voltar(Referencias.DASH_GERENTE);
+                else
+                    voltar(Referencias.ACESSAR_VENDA);
             }
         });
+    }
+
+    private void configuraLista(Carro C) {
+        DefaultListModel<Object> modelo = new DefaultListModel<>();
+        modelo.addElement("Marca: " + C.getMarca());
+        modelo.addElement("Modelo: " + C.getModelo());
+        modelo.addElement("Ano: " + C.getAno());
+        modelo.addElement("Cor: " + C.getCor());
+        modelo.addElement("Câmbio: " + C.getCambio());
+        modelo.addElement("Combustível: " + C.getCombustivel());
+        modelo.addElement("Num Portas: " + C.getNumPortas());
+        modelo.addElement("Km: " + C.getQuilometragem());
+        modelo.addElement("Torque: " + C.getTorque());
+        modelo.addElement("Valor: " + C.getPreco());
+        modelo.addElement("ID: " + C.getId());
+
+        carList.setModel(modelo);
     }
 
     @Override
