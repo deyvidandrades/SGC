@@ -26,7 +26,7 @@ public abstract class Strings {
 
     //RECURSOS GRAFICOS//
     public static String ICONE = "src/main/res/imagens/dal.png";
-    public static String IMG_1 = "src/main/res/imagens/carros/palop2014.png";
+    public static String IMG_1 = "src/main/res/imagens/carros/palio2014.png";
     public static String IMG_2 = "src/main/res/imagens/carros/toro2017.png";
     public static String IMG_3 = "src/main/res/imagens/carros/polo2019.png";
     public static String IMG_4 = "src/main/res/imagens/carros/amarok2019.png";
@@ -39,6 +39,7 @@ public abstract class Strings {
 
 
     //BASE DE DADOS//
+    public static String ADMIN = "admin";
     public static String DADOS_CARROS = "carros";
     public static String DADOS_VENDAS = "vendas";
     public static String DADOS_EMPRESA = "empresa";

@@ -13,10 +13,7 @@ import javax.swing.*;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,7 +22,6 @@ import java.util.Objects;
 public class CadastroFuncionarios implements FrameInterface, PersistirDados {
     private JTable tabelaFuncionarios;
     private JButton cadastrarFuncionarioButton;
-    private JPasswordField passwordField1;
     private JFormattedTextField nomeText;
     private JCheckBox privilegioCheckBox;
     private JPasswordField senhaText;
@@ -33,13 +29,14 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
     private JPanel panel1;
     private JButton voltarButton;
     private JFormattedTextField loginText;
+    private JTextField busca;
 
     private Funcionario FUNCIONARIO;
     private boolean check = false;
 
     public CadastroFuncionarios() {
 
-        configuraTabela();
+        configuraTabela(false);
         configuraComboBox();
 
         privilegioCheckBox.addItemListener(new ItemListener() {
@@ -83,7 +80,7 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
                     setDados(Strings.DADOS_FUNCIONARIOS, funcionario.toMap());
                     JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_NOVO_FUNCIONARIO);
 
-                    configuraTabela();
+                    configuraTabela(false);
                     IniciarGUI.show(Referencias.CADASTRAR_FUNCIONARIO);
                 } else {
                     JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_LOGIN_INVALIDO);
@@ -95,6 +92,23 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 IniciarGUI.show(Referencias.DASH_GERENTE);
+            }
+        });
+
+        busca.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent keyEvent) {
+                configuraTabela(true);
+            }
+
+            @Override
+            public void keyPressed(KeyEvent keyEvent) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent keyEvent) {
+
             }
         });
 
@@ -125,7 +139,7 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
         comboCargo.setModel(comboBoxModel);
     }
 
-    private void configuraTabela() {
+    private void configuraTabela(boolean buscar) {
         ArrayList<Funcionario> funcionarios = getFuncionarios();
 
         DefaultTableModel model = new DefaultTableModel() {
@@ -143,18 +157,34 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
         ArrayList<Funcionario> arrayListFuncionarios = new ArrayList<>();
 
         for (Funcionario funcionario : funcionarios) {
-            if (!funcionario.getLogin().equals("admin")) {
-                arrayListFuncionarios.add(funcionario);
+            if (!funcionario.getLogin().equals(Strings.ADMIN)) {
+                if (buscar && !busca.getText().isEmpty()) {
+                    if (funcionario.getNome().toUpperCase().contains(busca.getText().toUpperCase())) {
+                        arrayListFuncionarios.add(funcionario);
 
-                String acesso = "";
-                if (funcionario.getAcesso()) {
-                    acesso = "Sim";
+                        String acesso = "";
+                        if (funcionario.getAcesso()) {
+                            acesso = "Sim";
+                        } else {
+                            acesso = "Não";
+                        }
+
+                        Object[] objects = {funcionario.getNome(), funcionario.getCargo(), acesso};
+                        model.addRow(objects);
+                    }
                 } else {
-                    acesso = "Não";
-                }
+                    arrayListFuncionarios.add(funcionario);
 
-                Object[] objects = {funcionario.getNome(), funcionario.getCargo(), acesso};
-                model.addRow(objects);
+                    String acesso = "";
+                    if (funcionario.getAcesso()) {
+                        acesso = "Sim";
+                    } else {
+                        acesso = "Não";
+                    }
+
+                    Object[] objects = {funcionario.getNome(), funcionario.getCargo(), acesso};
+                    model.addRow(objects);
+                }
             }
         }
 
