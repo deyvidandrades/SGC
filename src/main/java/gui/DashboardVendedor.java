@@ -107,7 +107,7 @@ public class DashboardVendedor implements FrameInterface, PersistirDados {
         int i = 0;
         for (Carro carro : carros) {
             if (!carro.isVendido()) {
-                Object[] objects = {carro.getId(), carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPreco() * 1000};
+                Object[] objects = {carro.getId(), carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPreco()};
                 model.addRow(objects);
 
                 i++;
@@ -152,7 +152,7 @@ public class DashboardVendedor implements FrameInterface, PersistirDados {
                 carro.getModelo(),
                 carro.getMarca(),
                 carro.getAno(),
-                carro.getPreco() * 1000,
+                carro.getPreco(),
                 carro.getCor(),
                 carro.getNumPortas(),
                 carro.getCambio(),
