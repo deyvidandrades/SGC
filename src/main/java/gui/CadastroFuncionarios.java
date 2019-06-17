@@ -69,21 +69,33 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
 
-                if (!nomeText.getText().equals("") && !String.valueOf(senhaText.getPassword()).equals("") && !loginText.getText().equals("")) {
-                    Funcionario funcionario = new Funcionario(
-                            nomeText.getText(),
-                            String.valueOf(senhaText.getPassword()),
-                            Objects.requireNonNull(comboCargo.getSelectedItem()).toString(),
-                            loginText.getText(),
-                            check);
+                ArrayList<Funcionario> funcionarios = getFuncionarios();
 
-                    setDados(Strings.DADOS_FUNCIONARIOS, funcionario.toMap());
-                    JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_NOVO_FUNCIONARIO);
+                boolean jaExiste = false;
+                for (Funcionario f : funcionarios) {
+                    if (f.getLogin().equals(loginText.getText())) {
+                        jaExiste = true;
+                    }
+                }
+                if (!jaExiste) {
+                    if (!nomeText.getText().equals("") && !String.valueOf(senhaText.getPassword()).equals("") && !loginText.getText().equals("")) {
+                        Funcionario funcionario = new Funcionario(
+                                nomeText.getText(),
+                                String.valueOf(senhaText.getPassword()),
+                                Objects.requireNonNull(comboCargo.getSelectedItem()).toString(),
+                                loginText.getText(),
+                                check);
 
-                    configuraTabela(false);
-                    IniciarGUI.show(Referencias.CADASTRAR_FUNCIONARIO);
+                        setDados(Strings.DADOS_FUNCIONARIOS, funcionario.toMap());
+                        JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_NOVO_FUNCIONARIO);
+
+                        configuraTabela(false);
+                        IniciarGUI.show(Referencias.CADASTRAR_FUNCIONARIO);
+                    } else {
+                        JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_LOGIN_INVALIDO);
+                    }
                 } else {
-                    JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_LOGIN_INVALIDO);
+                    JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_USERNAME);
                 }
             }
         });
