@@ -250,7 +250,7 @@ public class DashboardVendedor implements FrameInterface, PersistirDados {
                     carro.setId(carro.getId());
                     atualizarCarro(carros.get(i).getId(), carro.toMap());
 
-                    Empresa empresa = new Empresa(VALOR_EM_CAIXA + carro.getPreco());
+                    Empresa empresa = new Empresa(getValorEmCaixa() + carro.getPreco());
                     atualizarCaixa(empresa.toMap());
                 }
 
@@ -265,6 +265,7 @@ public class DashboardVendedor implements FrameInterface, PersistirDados {
             tabelaInfo.setEnabled(false);
 
             configuraTabelaEstoque();
+            VALOR_EM_CAIXA = getValorEmCaixa();
 
             JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_COMPRA_REALIZADA);
 

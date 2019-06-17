@@ -16,7 +16,7 @@ import java.util.Map;
 public interface PersistirDados {
     File file = new File(Strings.DADOS);
 
-    private JSONArray getDados(String key) {
+    default JSONArray getDados(String key) {
         String content = "";
 
         try {
