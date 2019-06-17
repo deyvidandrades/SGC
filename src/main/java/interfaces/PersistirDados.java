@@ -210,6 +210,40 @@ public interface PersistirDados {
 
     }
 
+    default void atualizarCaixa(Map map) {
+        try {
+            String content = FileUtils.readFileToString(file, "utf-8");
+            JSONObject jsonObject = new JSONObject(content);
+
+            JSONArray jsonArray = (JSONArray) jsonObject.get(Strings.DADOS_EMPRESA);
+
+            int i = 0, indice = 0;
+            for (Object object : jsonArray) {
+                ObjectMapper m = new ObjectMapper();
+
+                Empresa empresa = null;
+                try {
+                    empresa = m.readValue(object.toString(), Empresa.class);
+                    indice = i;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                i++;
+            }
+
+            jsonArray.remove(indice);
+            jsonArray.put(map);
+
+            FileWriter fileWriter = new FileWriter(file);
+            fileWriter.write(jsonObject.toString());
+            fileWriter.flush();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     default void deletarFuncionario(long funcionarioId) {
         try {
             String content = FileUtils.readFileToString(file, "utf-8");

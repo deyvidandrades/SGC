@@ -1,6 +1,7 @@
 package main.java.gui;
 
 import main.java.entidades.Carro;
+import main.java.entidades.Empresa;
 import main.java.interfaces.FrameInterface;
 import main.java.interfaces.PersistirDados;
 import main.java.interfaces.UriImagem;
@@ -198,6 +199,9 @@ public class ComprarCarro implements FrameInterface, PersistirDados, UriImagem {
             Carro novoCarro = new Carro(carro);
             setDados(Strings.DADOS_CARROS, novoCarro.toMap());
         }
+
+        Empresa empresa = new Empresa(VALOR_EM_CAIXA);
+        atualizarCaixa(empresa.toMap());
 
         JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_COMPRA_REALIZADA);
         voltar(Referencias.DASH_GERENTE);

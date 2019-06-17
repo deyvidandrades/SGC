@@ -3,6 +3,7 @@ package main.java.gui;
 import main.java.assistentes.IniciarGUI;
 import main.java.entidades.Carro;
 import main.java.entidades.Cliente;
+import main.java.entidades.Empresa;
 import main.java.entidades.Venda;
 import main.java.interfaces.FrameInterface;
 import main.java.interfaces.PersistirDados;
@@ -47,9 +48,10 @@ public class DashboardVendedor implements FrameInterface, PersistirDados {
     private long carroID = 0;
     private long funcionarioID = Referencias.FUNCIONARIO.getId();
     private String pagamento = "";
+    private double VALOR_EM_CAIXA;
 
     public DashboardVendedor() {
-
+        VALOR_EM_CAIXA = getValorEmCaixa();
 
         assert false;
         img.setIcon(icone);
@@ -247,6 +249,9 @@ public class DashboardVendedor implements FrameInterface, PersistirDados {
                     carro.setVendido(true);
                     carro.setId(carro.getId());
                     atualizarCarro(carros.get(i).getId(), carro.toMap());
+
+                    Empresa empresa = new Empresa(VALOR_EM_CAIXA + carro.getPreco());
+                    atualizarCaixa(empresa.toMap());
                 }
 
                 i++;
