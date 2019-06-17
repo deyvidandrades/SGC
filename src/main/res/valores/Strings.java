@@ -15,6 +15,7 @@ public abstract class Strings {
 
     //MENSAGENS//
     public static String MENSAGEM_LOGIN_INVALIDO = "Nome ou senha inválido.";
+    public static String MENSAGEM_LOGI_CAD_INVALIDO = "Dados inválidos. Verifique suas informações.";
     public static String MENSAGEM_USERNAME = "Login já cadastrado.";
     public static String MENSAGEM_NAO_IMPLEMENTADO = "Funcionalidade não implementada";
     public static String MENSAGEM_NOVO_FUNCIONARIO = "Funcionario adicionado com sucesso";

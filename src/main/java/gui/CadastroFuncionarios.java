@@ -92,7 +92,7 @@ public class CadastroFuncionarios implements FrameInterface, PersistirDados {
                         configuraTabela(false);
                         IniciarGUI.show(Referencias.CADASTRAR_FUNCIONARIO);
                     } else {
-                        JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_LOGIN_INVALIDO);
+                        JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_LOGI_CAD_INVALIDO);
                     }
                 } else {
                     JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_USERNAME);
