@@ -53,7 +53,7 @@ public class DashboardGerente implements FrameInterface, PersistirDados {
 
         assert false;
         img.setIcon(icone);
-        lucroTotal.setText("");
+        lucroTotal.setText(String.valueOf(getValorEmCaixa()));
         carrosVendidos.setText("");
         carrosEstoque.setText("");
         ESTOQUE = 0;
