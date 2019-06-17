@@ -105,11 +105,13 @@ public class DashboardVendedor implements FrameInterface, PersistirDados {
         }
 
         int i = 0;
+        ArrayList<Carro> carrosNaoVendidos = new ArrayList<>();
+
         for (Carro carro : carros) {
             if (!carro.isVendido()) {
                 Object[] objects = {carro.getId(), carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPreco()};
                 model.addRow(objects);
-
+                carrosNaoVendidos.add(carro);
                 i++;
             }
         }
@@ -124,7 +126,7 @@ public class DashboardVendedor implements FrameInterface, PersistirDados {
                 int col = tabelaEstoque.columnAtPoint(evt.getPoint());
                 if (row >= 0 && col >= 0) {
 
-                    configuraTabelainfo(carros, tabelaEstoque.getSelectedRow());
+                    configuraTabelainfo(carrosNaoVendidos, tabelaEstoque.getSelectedRow());
                     tabelaInfo.setEnabled(true);
                 }
             }
