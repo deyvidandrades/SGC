@@ -101,14 +101,11 @@ Simule a venda de carros, controle de estoque e financeiro.
 	- Tela de informações de venda
 	- Tela de informações de veículos
 	- Compra de veículos para a concessionária
-
-## Todo
-- Refinar as interfaces de usuário
-- ~~Tela de informações de venda~~
-- ~~Tela de informações de veículos~~
-- *interface* de busca para as tabelas
-- função `removerFuncionário()`
-- ~~Compra de veículos para a concessionária~~
+- 1.3.0
+	- Refinar as interfaces de usuário
+	-  *interface* de busca para as tabelas
+	-  função `removerFuncionário()`
+	- vários bugfixes
 
 ## Autores
 
