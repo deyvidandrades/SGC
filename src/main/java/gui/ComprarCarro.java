@@ -198,10 +198,10 @@ public class ComprarCarro implements FrameInterface, PersistirDados, UriImagem {
         for (int i = 0; i < qtd; i++) {
             Carro novoCarro = new Carro(carro);
             setDados(Strings.DADOS_CARROS, novoCarro.toMap());
-        }
 
-        Empresa empresa = new Empresa(VALOR_EM_CAIXA);
-        atualizarCaixa(empresa.toMap());
+            Empresa empresa = new Empresa(VALOR_EM_CAIXA - novoCarro.getPreco());
+            atualizarCaixa(empresa.toMap());
+        }
 
         JOptionPane.showMessageDialog(frame, Strings.MENSAGEM_COMPRA_REALIZADA);
         voltar(Referencias.DASH_GERENTE);
