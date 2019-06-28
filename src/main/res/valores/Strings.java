@@ -3,7 +3,7 @@ package main.res.valores;
 public abstract class Strings {
     //STRINGS DO PROGRAMA//
     public static String DAL = "SGC";
-    public static String VERSAO = "1.3.0";
+    public static String VERSAO = "1.3.1";
     public static String DESCRICAO = "SGC - Sistema de Gestão de Concessionária";
     public static String DAL_COMPLETO = "SGC - Sistema de Gestão de Concessionária";
 
